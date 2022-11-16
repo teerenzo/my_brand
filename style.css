@@ -1,0 +1,202 @@
+* {
+padding: 0;
+margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+.nav_name{
+    display: flex;
+}
+.nav_name h2{
+    font-size: 30px;
+    color: white;
+}
+.nav h3{
+  color: white;
+  /* padding: 12px; */
+}
+.nav-footer{
+    display: flex;
+  margin-top: 30px;
+  justify-content:space-evenly;
+}
+.nav .nav-footer img {
+
+    width: 35px;
+    height: 35px;
+}
+.icon{
+    height: 10px;
+    width: 10px;
+    background-color: #FF5959;
+    border-radius: 50px;
+    margin-top: 17px;
+    margin-left: 5px;
+}
+
+.nav{
+background-color: #4A63E7;
+padding: 25px;
+border-radius: 6px;
+position: fixed;
+top: 20px;
+left: 20px;
+
+height: 85vh;
+}
+.nav img{
+    border-radius: 50px;
+    height: 80px;
+    width: 80px;
+}
+
+.pages{
+background-color: white;
+margin-left: 220px;
+width: 80%;
+}
+
+.menu-list{
+    display: flex;
+    margin-top: 13px;
+    /* padding: 13px; */
+}
+
+.menu-list h3{
+    color: white;
+    margin-top: 5px;
+    padding-left: 6px;
+}
+.menu-list img{
+    width: 25px;
+    height: 25px;
+}
+.bg-img{
+  
+    /* width: fit-content; */
+    background-image: url('./resources/DSC_8569.jpg');
+    background-size: cover;
+    min-height: 95vh;
+    border-radius: 7px;
+
+   
+}
+.landing-content{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    background-color: #4A63E7 ;
+    background-size: cover;
+    min-height: 95vh;
+    opacity: .8;
+    align-items:center;
+    border-radius: 7px;
+}
+.landing-content h3{
+   font-size: 50px;
+   color: white;
+ text-align: start;
+ padding: 10px;
+}
+.landing-content p{
+    color: white;
+    font-size: 18px;
+    width: 50%;
+    padding: 10px;
+}
+.landing-btn{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 30%;
+}
+.btn-primary{
+border: none;
+color: white;
+background-color: #FF5959;
+font-size: 16px;
+font-weight: bold;
+padding: 13px 30px;
+border-radius: 5px;
+}
+.btn-hire-me {
+    border: 1px solid white;
+    color: white;
+    background:transparent;
+    padding: 13px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.about{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 95vh;
+    box-shadow: 2px 2px 2px 2px rgb(201, 198, 198);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+.about .about-img{
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+.about-me{
+    width: 80%;
+}
+.about .about-img img{
+    border-radius: 50px;
+}
+.title{
+    padding: 30px;
+    padding-top: 40px;
+    
+}
+.title h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+.line{
+    margin-top: 5px;
+    border-radius: 3px;
+    height: 6px;
+    width: 40px;
+    background-color: #FF5959;
+}
+
+.about .about-btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+}
+
+.btn-hire{
+    padding: 13px 30px;
+    border: none;
+    background-color: #4A63E7;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.btn-about{
+    padding: 13px 30px;
+    border: none;
+    background-color:#FF5959;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-left: 10px;
+}
