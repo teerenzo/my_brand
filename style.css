@@ -277,3 +277,52 @@ border-radius: 5px;
 .skill-title h3{
     font-size: 20px;
 }
+
+.accomplish{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 22vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #4A63E7;
+    box-shadow: 2px 2px 2px 2px #4A63E7;
+}
+.project{
+    text-align: center;
+}
+.project img{
+    width: 50px;
+    height: 50px;
+}
+
+.project h3{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.customer{
+    text-align: center;
+}
+.customer img{
+    width: 50px;
+    height: 50px;
+}
+.customer h3{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.award{
+    text-align: center;
+}
+.award img{
+    width: 50px;
+    height: 50px;
+}
+.award h3{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
