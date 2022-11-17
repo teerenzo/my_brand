@@ -200,3 +200,80 @@ border-radius: 5px;
     border-radius: 20px;
     margin-left: 10px;
 }
+.skill{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 95vh;
+    box-shadow: 2px 2px 2px 2px rgb(201, 198, 198);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.skill h2{
+    padding: 25px;
+    width: 80%;
+}
+.skillcontainer{
+    text-align: right;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+.skill-Lists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.skillList1{
+    width: 40%;
+    padding: 15px;
+}
+.php{
+    height: 10px;
+    background-color: #FF5959;
+    width: 93%;
+    border-radius: 15px 0px 0px 15px;
+}
+.flutter{
+    height: 10px;
+    background-color: #FF5959;
+    width: 86%;
+    border-radius: 15px 0px 0px 15px;
+}
+.java{
+    height: 10px;
+    background-color: #FF5959;
+    width: 75%;
+    border-radius: 15px 0px 0px 15px;
+}
+.HtmlCSS{
+    height: 10px;
+    background-color: #FF5959;
+    width: 82%;
+    border-radius: 15px 0px 0px 15px;
+}
+.django{
+    height: 10px;
+    background-color: #FF5959;
+    width: 80%;
+    border-radius: 15px 0px 0px 15px;
+}
+.javascript{
+    height: 10px;
+    background-color: #FF5959;
+    width: 70%;
+    border-radius: 15px 0px 0px 15px;
+}
+.skill-title{
+   padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.skill-title .percent{
+    font-size: 20px;
+    color: grey;
+}
+.skill-title h3{
+    font-size: 20px;
+}
