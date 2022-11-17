@@ -342,16 +342,6 @@ border-radius: 5px;
 .experience-content .steps{
  text-align: center;
 }
-.experience-content .years{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around; */
-}
-.experience-content .descriptions{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around; */
-}
 .first{
     margin-top: 60px;
 }
@@ -380,5 +370,44 @@ border-radius: 5px;
     background-color: #FF5959;
   margin-left: 4px;
 
+}
+
+.Portfolio{
+    height: 90vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #e8e8e9;
+}
+.Portfolio .btn-protofolio{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    align-items: center;
+    margin-left: 15px;
+}
+.Portfolio .btn-protofolio .btn{
+    padding: 5px 34px;
+    border: none;
+    background-color: #FF5959;
+    color: white;
+    border-radius: 15px;
+}
+.btn-regular {
+    padding: 5px 30px;
+    border: 1px solid #6C6666;
+    background-color: transparent;
+    color: #6C6666;
+    border-radius: 15px;
+}
+.protofolio-content{
+    margin-left: 15px;
+
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.protofolio-content img{
+    padding: 10px;
 }
 
