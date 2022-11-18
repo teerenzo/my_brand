@@ -529,3 +529,135 @@ textarea{
     padding: 8px 23px;
     border-radius: 6px;
 }
+
+
+/* view Blog */
+.viewBlog{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 13vh;
+    background-color: #4A63E7;
+}
+.header-title h3{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 40px;
+    padding: 8px;
+}
+.header-menu {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    margin-right: 20px;
+    justify-content:center;
+}
+.header-menu a{
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    /* padding: 10px 20px; */
+    margin-top: 100px;
+}
+.article-info img{
+    /* padding: 10px; */
+    padding: 20px;
+    width: 50%;
+    border-radius: 17px;
+}
+.article-info p{
+    width: 50%;
+    font-size: 30px;
+    padding: 12px;
+}
+.comment-sect{
+    width: 100%;
+}
+.comment-like-icon{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 20%;
+    padding: 13px;
+}
+.comment-like-icon .like {
+display: flex;
+}
+.comment-like-icon .like img{
+    width: 50px;
+    height: 50px;
+}
+.comment-like-icon .like p{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.comment-like-icon .comment p{
+    font-size: 20px;
+    margin-top: 8px;
+
+    font-weight: bold;
+}
+
+.comment-like-icon .comment {
+    display: flex;
+    justify-content: space-around;
+    }
+    .comment-like-icon .comment img{
+        width: 40px;
+        height: 40px;
+    }
+
+.comments{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    padding: 12px;
+}  
+.comments img{
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+} 
+.comments .comment-info{
+    padding: 8px;
+}
+.comments .comment-info .date{
+    padding: 6px;
+    font-size: 16px;
+}
+.leave-comment{
+    width: 50%;
+    padding: 20px;
+    margin-left: 20px;
+}
+.leave-comment p{
+    padding: 12px 0px 12px 0px;
+    font-size: 20px;
+}
+.leave-comment form{
+    display: flex;
+    flex-direction: column;
+}
+.leave-comment textarea{
+    width: 70%;
+}
