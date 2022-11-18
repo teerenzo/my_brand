@@ -456,3 +456,76 @@ border-radius: 5px;
 .post-footer h4{
     padding: 6px;
 }
+
+.contact{
+    height: 90vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #e8e8e9;
+}
+.contact-content{
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+}
+.contact-content .contact-info{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+.contact-content .contact-form{
+    width: 50%;
+}
+.contact-content .contact-info .tel{
+display: flex;
+justify-content: space-around;
+}
+.contact-content .contact-info .tel img {
+    width: 25px;
+    height: 25px;
+}
+.contact-content .contact-info .email{
+    display: flex;
+   justify-content: space-around;
+
+ }
+.contact-content .contact-info .email img{
+        width: 25px;
+        height: 25px; 
+}
+.contact-content .contact-info .location{
+        display: flex;
+justify-content: space-around;
+
+ }
+ .contact-content .contact-info .location img{
+            width: 25px;
+            height: 25px;
+ }
+
+.contact-content .contact-form form{
+    display: flex;
+    flex-direction: column;
+}
+input[type=text]{
+    border: 1px solid #FF5959;
+    border-radius: 6px;
+    padding: 10px 22px;
+    width: 100%;
+}
+textarea{
+    border: 1px solid #FF5959;
+    border-radius: 6px;
+    width: 100%;
+    padding: 8px 22px;
+}
+.btn-contact{
+    background-color:#4A63E7;
+    border: none;
+    color: white;
+    margin-top: 6px;
+    width: 20%;
+    padding: 8px 23px;
+    border-radius: 6px;
+}
