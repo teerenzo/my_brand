@@ -685,8 +685,13 @@ display: flex;
     background-color: white;
 }
 .login .form form{
-    /* height: ; */
-    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.login .form form input[type=text]{
+    width: 80%;
 }
 .icon-login{
     height: 10px;
