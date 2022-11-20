@@ -1,6 +1,7 @@
 * {
 padding: 0;
 margin: 0;
+box-sizing: border-box;
 }
 
 .container{
@@ -580,7 +581,7 @@ textarea{
 }
 .article-info img{
     /* padding: 10px; */
-    padding: 20px;
+    padding: 10px;
     width: 50%;
     border-radius: 17px;
 }
@@ -824,4 +825,123 @@ padding: 7px;
 .experience{
     height: auto;
 }
+.comments{
+    width: 100%;
+}
+.leave-comment{
+    width: 100%;
+}
+.article-info p{
+    width: 100%;
+    font-size: 16px;
+}
+}
+
+
+/* dashboard */
+
+.page-container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.sidebar{
+    background-color: #4A63E7;
+    border-right: 1px solid white;
+    width: 20%;
+    text-align: center;
+}
+.sidebar h3{
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+}
+.sidebar .nav-menu ul{
+    list-style: none;
+    border-bottom: 1px solid #FF5959;
+}
+.sidebar .nav-menu ul li{
+    padding: 10px;
+    border-top: 1px solid #FF5959   
+}
+.sidebar .nav-menu ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.main {
+    width: 100%;
+}
+.main .dashboard-menu{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color: #4A63E7;
+}
+.main .dashboard-menu p{
+    color: white;
+    font-size: 18px;
+}
+
+.cards{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.cards .card-holder{
+    width: 40%;
+    padding: 20px;
+}
+.cards .card-holder .card{
+    width: 60%;
+    text-align: center;
+    box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
+    border-radius: 10px;
+    padding: 40px;
+}
+.messages{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.messages .head{
+    font-size: larger;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+.dashboard-message{
+    padding: 10px;
+    width: 80%;
+       box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
+       border-radius: 6px;
+
+}
+.dashboard-message p{
+    padding-left: 10px;
+    font-size: 16px;
+}
+.dashboard-message .btn-sms{
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.dashboard-message .btn-sms .btn-reply{
+    color: white;
+    background-color: #4A63E7;
+    border: none;
+    padding: 5px 24px;
+    border-radius: 5px;
+}
+.dashboard-message .btn-sms .btn-delete{
+    color: white;
+    background-color: #FF5959;
+    border: none;
+    padding: 5px 24px;
+    border-radius: 5px;
 }
