@@ -10,7 +10,7 @@
 <body>
     
     <div class="container">
-
+  
         <section class="nav">
             <div class="logo">
                 <img src="./resources/images.jfif" alt="" srcset="">
@@ -23,34 +23,56 @@
             <h3>WEB DEVELOPER</h3>
 
            <a href="#home"><div class="menu-list">
+            <div class="active" id="home-active" >
+            
+            </div>
                 <img src="./resources/Home.svg" alt="" srcset="">
                 <h3>Home</h3>
             </div>
         </a> 
         <a href="#about">  <div class="menu-list">
+            <div class="active" id="about-active" style="display: none;">
+            
+            </div>
                 <img src="./resources/Vector.svg" alt="" srcset="">
                 <h3>About</h3>
-            </div></a>
+                </div>
+            </a>
             <a href="#skill"> <div class="menu-list">
+                <div class="active" id="skill-active" style="display:none">
+            
+                </div>
                 <img src="./resources/Design services.svg" alt="" srcset="">
                 <h3>Skills</h3>
             </div>
         </a>
 
         <a href="#experience">  <div class="menu-list">
+            <div class="active" id="experience-active" style="display: none;">
+            
+            </div>
                 <img src="./resources/School.svg" alt="" srcset="">
                 <h3>Resume</h3>
             </div>
             </a>
             <a href="#portfolio">  <div class="menu-list">
+                <div class="active" id="work-active" style="display: none;">
+            
+                </div>
                 <img src="./resources/Work outline.svg" alt="" srcset="">
                 <h3>Work</h3>
             </div></a>
             <a href="#article">  <div class="menu-list">
+                <div class="active" id="blog-active" style="display: none;">
+            
+                </div>
                 <img src="./resources/Edit.svg" alt="" srcset="">
                 <h3>Blog</h3>
             </div></a>
             <a href="#contact"> <div class="menu-list">
+                <div class="active" id="contact-active" style="display: none;">
+            
+                </div>
                 <img src="./resources/Call.svg" alt="" srcset="">
                 <h3>Contact</h3>
             </div></a>
@@ -61,15 +83,35 @@
 
         </section>
         <section class="pages">
+            <div class="nav-mobile" id="mobile">
+                <div class="menu-m">
+                    <img src="./resources/Close.svg" onclick="toggle()" id="close-btn" style="display: none;" alt="" srcset="">
+                    <img src="./resources/Menu.svg" onclick="toggle()" id="menu-btn"  alt="" srcset="">
+                    <h3>Teerenzo</h3>
+                </div>
+                <div class="mobile-menu">
+                    <div id="myLink">
+                        <a href="#home" onclick="toggle()">Home</a>
+                        <a href="#about" onclick="toggle()">About</a>
+                        <a href="#skill" onclick="toggle()">About</a>
+                        <a href="#experience" onclick="toggle()">Experience</a>
+                        <a href="#portfolio" onclick="toggle()">Portofolio</a>
+                        <a href="#article" onclick="toggle()">Blog</a>
+                        <a href="#contact" onclick="toggle()">Contact</a>
+                    </div>
+             
+                </div>
+            </div>
+       
+        
          <div class="landing" id="home">
           <div class="bg-img">
             <div class="landing-content">
                 <h3>I'M EMMANUEL RENZAHO</h3>
                 <h3>(Teerenzo)</h3>
-                <p>He lay on his armour-like back, and
-                     if he lifted his head a little he could see
-                      his brown belly, slightly domed and divided by
-                       arches into stiff sections.</p>
+                <p>Design, modify, develop, write and implement 
+                    software programming applications. Support and/or install software applications/operating systems. Participate in the testing process through test 
+                    review and analysis, test witnessing and certification of software.</p>
                        <div class="landing-btn">
                         <button class="btn-primary">View Work</button>
                         <button class="btn-hire-me">Hire me</button>
@@ -90,10 +132,9 @@
                 <div class="about-me">
                     <h3>Hello,</h3>
                     <h2>
-                        I am Bako Doe, web developer from London,
-                         United Kingdom. I have rich experience in 
-                         web site design and building and customization,
-                          also I am good at wordpress.
+                        I am Emmanuel Renzaho, Web,Mobile,Desktop developer from Kigali,
+                         Rwanda. I have rich experience in 
+                          design , building and customization system.
 
                     </h2>
                 </div>
@@ -359,6 +400,6 @@
 
     </div>
 
-
+<script src="./javascript.js"></script>
 </body>
 </html>

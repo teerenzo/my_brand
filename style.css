@@ -3,7 +3,13 @@ padding: 0;
 margin: 0;
 box-sizing: border-box;
 }
-
+.active{
+    height: 30px;
+    width: 4px;
+    border-radius: 6px;
+    margin-left: -10px;
+    background-color: #FF5959;
+}
 .container{
     display: flex;
     flex-direction: row;
@@ -79,7 +85,7 @@ width: 80%;
 }
 .bg-img{
   
-    /* width: fit-content; */
+    width: 100%;
     background-image: url('./resources/DSC_8569.jpg');
     background-size: cover;
     min-height: 95vh;
@@ -87,7 +93,60 @@ width: 80%;
 
    
 }
+.nav-mobile{
+    z-index: 1;
+    margin-right: 10px;
+    /* margin-bottom: 300px;
+    padding: 50px; */
+    display: none;
+    background-color: #4A63E7 ;
+    border-radius: 12px;
+    transition: all;
+    /* justify-content:space-between; */
+    /* align-items: center; */
+    padding:7px;
+     /* margin-bottom: 10px; */
+     position: fixed;
+    width: 98%;
+}
+.mobile-menu {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+}
+.mobile-menu #myLink a{
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+
+}
+.mobile-menu #myLink {
+    display: none;
+    transition: red 0.5s ease;
+  }
+.mobile-menu #myLink a:hover{
+    color: #FF5959;
+}
+.nav-mobile .menu-m{
+    display: flex;
+    justify-content:start;
+    padding: 10px;
+    align-items: center;
+}
+.nav-mobile img{
+    width:37px;
+    height: 37px;
+}
+.nav-mobile h3{
+    padding: 7px;
+
+    color: white;
+    margin-left: 10px;
+}
 .landing-content{
+    width: 100%;
     display: flex;
     justify-content:center;
     flex-direction: column;
@@ -107,7 +166,7 @@ width: 80%;
 .landing-content p{
     color: white;
     font-size: 18px;
-    width: 50%;
+    width: 70%;
     padding: 10px;
 }
 .landing-btn{
@@ -681,11 +740,12 @@ display: flex;
 }
 .login .form{
     display: flex;
-    width: 50%;
+    width: 40%;
     padding: 30px;
     background-color: white;
 }
 .login .form form{
+    padding: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -732,6 +792,12 @@ display: flex;
 /* responsive */
 
 @media screen and (max-width:680px) {
+    .nav-mobile{
+        display: flex;
+        flex-direction: column;
+        transition-delay: 5s;
+        /* position: fixed; */
+    }
     .nav{
         display:none;
 
@@ -754,6 +820,7 @@ padding: 7px;
     }
     .landing-btn{
         height: 14vh;
+        width: 50%;
         flex-direction: column;
         justify-content:space-around;
     }
@@ -803,7 +870,9 @@ padding: 7px;
     min-height: auto;
 }
 .landing-content{
+    margin-top: 80px;
     min-height: auto;
+    height: auto;
 }
 .container{
     padding-top: 0px;
@@ -842,7 +911,7 @@ padding: 7px;
 
 .page-container{
     display: flex;
-    height: 100vh;
+   min-height: 100vh;
     width: 100%;
 }
 .sidebar{
