@@ -1,3 +1,48 @@
+var all_project = document.getElementById("all_project");
+var branding = document.getElementById("branding");
+var creativite = document.getElementById("creativite");
+var all_content = document.getElementById("all-content");
+var web_content = document.getElementById("web-content");
+var mobile_content = document.getElementById("mobile-content");
+
+web_content.style.display="none"
+mobile_content.style.display="none"
+changeContent = (val) =>{
+  if(val==all_project){
+    all_content.style.display="flex"
+    web_content.style.display="none"
+mobile_content.style.display="none"
+    all_project.classList.add('btn')
+    all_project.classList.remove('btn-regular')
+    branding.classList.remove('btn')
+    creativite.classList.remove('btn')
+    branding.classList.add('btn-regular')
+    creativite.classList.add('btn-regular')
+    // all_project.style.backgroundColor="#FF5959"
+  }else if(val==branding){
+    all_content.style.display="none"
+    web_content.style.display="flex"
+mobile_content.style.display="none"
+    all_project.classList.remove('btn')
+    all_project.classList.add('btn-regular')
+    branding.classList.add('btn')
+    creativite.classList.remove('btn')
+    branding.classList.remove('btn-regular')
+    creativite.classList.add('btn-regular')
+
+  }else{
+    all_content.style.display="none"
+    web_content.style.display="none"
+mobile_content.style.display="flex"
+    all_project.classList.remove('btn')
+    all_project.classList.add('btn-regular')
+    branding.classList.remove('btn')
+    creativite.classList.add('btn')
+    branding.classList.add('btn-regular')
+    creativite.classList.remove('btn-regular')
+
+  }
+}
 function toggle() {
     // console.log("tee")
     var x = document.getElementById("myLink");
