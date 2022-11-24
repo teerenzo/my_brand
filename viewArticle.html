@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+</head>
+<body>
+   <div class="page-container">
+        <div class="sidebar">
+            <h3>Teerenzo</h3>
+            <div class="nav-menu">
+               <ul>
+                <li><a href=""> Dashboard </a></li>
+                <li> <a href=""> Add Article </a></li>
+                <li><a href=""> View Article</a></li>
+               </ul>
+            </div>
+         
+        </div>
+        <div class="main">
+            <div class="dashboard-menu">
+                <div class="dashboard-m-menu">
+                    <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;" alt="" srcset="">
+                    <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn"  alt="" srcset="">
+                    <div class="nav-menu" id="myLink2" >
+                        <a href="./dashboard.html"> Dashboard </a>
+                         <a href="./addArticle.html"> Add Article </a>
+                         <a href="./viewArticle.html"> View Article</a>
+                     </div>
+                </div>
+                <div>
+                    <p>Settings</p>
+                    <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
+                    <div id="myLink" class="logout">
+                        <a href="">Logout</a>
+                    </div>
+                </div>
+               
+            </div>
+           
+            <div class="dashboard-content">
+                <div class="dashboard-content-title">
+                    <h3>View Articles</h3>
+                    <hr>
+                </div>
+                <div class="view-articles">
+                     
+                    <div class="article-card">
+                        <div class="title-article">
+                            <p>Hello this is just title</p>
+                        </div>
+                        <div class="action">
+                            <img src="./resources/Remove red eye.svg" alt="">
+                            <img src="./resources/Mode edit.svg" alt="">
+                            <img src="./resources/Delete.svg" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="title-article">
+                            <p>Hello this is just title</p>
+                        </div>
+                        <div class="action">
+                            <img src="./resources/Remove red eye.svg" alt="">
+                            <img src="./resources/Mode edit.svg" alt="">
+                            <img src="./resources/Delete.svg" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="title-article">
+                            <p>Hello this is just title</p>
+                        </div>
+                        <div class="action">
+                            <img src="./resources/Remove red eye.svg" alt="">
+                            <img src="./resources/Mode edit.svg" alt="">
+                            <img src="./resources/Delete.svg" alt="" srcset="">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+          
+        </div>
+   </div>
+  <script src="./resources/assets/ckeditor/ckeditor.js"></script>
+  <script src="./javascript.js"></script>
+  <script>
+  CKEDITOR.replace("body");
+
+  </script>
+</body>
+</html>
