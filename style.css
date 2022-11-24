@@ -792,6 +792,18 @@ display: flex;
 /* responsive */
 
 @media screen and (max-width:680px) {
+    .page-container .main .dashboard-menu{
+        justify-content: space-between;
+    }
+    .main .dashboard-menu .dashboard-m-menu{
+      
+        display: block;
+
+    }
+    
+    .sidebar{
+        display: none;
+    }
     .nav-mobile{
         display: flex;
         flex-direction: column;
@@ -941,6 +953,22 @@ padding: 7px;
 .main {
     width: 100%;
 }
+.dashboard-m-menu{
+    display: none;
+}
+.main .dashboard-menu .nav-menu{
+    background-color: #333;
+    padding: 20px;
+    position: absolute;
+    display: none;
+}
+.main .dashboard-menu .nav-menu a{
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+
+}
 .main .dashboard-menu{
     display: flex;
     justify-content: right;
@@ -1014,3 +1042,83 @@ padding: 7px;
     padding: 5px 24px;
     border-radius: 5px;
 }
+
+
+/* add article */
+.form-article{
+    /* background-color: #4A63E7; */
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.form-article form {
+    width: 60%;
+    border: 1px solid #4A63E7;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
+
+    padding:10px
+}
+.form-article form h4{
+    padding-top: 10px;
+    font-size: 18px;
+}
+.dashboard-content-title{
+    padding: 10px;
+    width: 100%;
+}
+.dashboard-content-title hr{
+    width: 100%;
+    margin-top: 10px;
+    /* padding: 30px; */
+}
+
+
+/* view-articles */
+
+.view-articles{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.view-articles .article-card{
+    padding: 10px;
+    width: 80%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border: 1px solid #4A63E7;
+   border-radius: 4px;
+   box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
+   margin-top: 10px;
+
+}
+.view-articles .article-card p{
+    /* width: 90%; */
+    font-size: 18px;
+}
+.view-articles .article-card img{
+    width: 27px;
+    height: 27px;
+}
+
+.logout{
+    margin-top: 40px;
+    padding: 7px;
+    background-color: #FF5959;
+    top: 10px;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+}
+.logout a{
+    color:white;
+    text-decoration: none;
+}
+

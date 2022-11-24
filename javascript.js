@@ -14,6 +14,22 @@ function toggle() {
       menu.style.display = "none";
     }
   }
+  function toggleDashboard() {
+    // console.log("tee")
+    var x = document.getElementById("myLink2");
+    var close = document.getElementById("close-btn");
+    var menu = document.getElementById("menu-btn");
+    if (x.style.display === "block") {
+
+      x.style.display = "none";
+      close.style.display = "none";
+      menu.style.display = "block";
+    } else {
+      x.style.display = "block";
+      close.style.display = "block";
+      menu.style.display = "none";
+    }
+  }
   var home=document.getElementById('home-active')
   var about=document.getElementById('about-active')
   var skill=document.getElementById('skill-active')
