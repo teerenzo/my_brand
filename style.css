@@ -634,6 +634,8 @@ textarea{
 .article-info {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     /* padding: 10px 20px; */
     margin-top: 100px;
@@ -641,11 +643,11 @@ textarea{
 .article-info img{
     /* padding: 10px; */
     padding: 10px;
-    width: 50%;
+    width: 100%;
     border-radius: 17px;
 }
 .article-info p{
-    width: 50%;
+    /* width: 50%; */
     font-size: 30px;
     padding: 12px;
 }
@@ -792,6 +794,21 @@ display: flex;
 /* responsive */
 
 @media screen and (max-width:680px) {
+    .dashboard-content .cards .card-holder{
+        width: 50%;
+    }
+    .dashboard-content .cards .card-holder .card{
+        width: 100%;
+    }
+    .login .form{
+        width: 70%;
+    }
+    .login .form form input[type=text]{
+        width: 100%;
+    }
+    .dashboard-content .form-article form{
+        width: 100%;
+    }
     .page-container .main .dashboard-menu{
         justify-content: space-between;
     }
