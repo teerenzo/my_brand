@@ -158,3 +158,62 @@ else if(window.scrollY > 3400 && window.scrollY <= 4000){
         myNav.classList.remove("nav-colored");
     }
 };
+
+
+const validate = e =>{
+
+  if( document.contactForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+    alert( "Please provide your email or an invalid email address" );
+    document.contactForm.email.focus() ;
+    return false;
+ }
+ if( document.contactForm.subject.value == "" ) {
+    alert( "Please provide your subject!" );
+    document.contactForm.subject.focus() ;
+    return false;
+ }
+ if( document.contactForm.message.value == "" ) {
+  alert( "Please provide your message!" );
+  document.contactForm.message.focus() ;
+  return false;
+}
+ 
+  return (true);
+}
+
+const validateLogin = e =>{
+  console.log("he")
+  if( document.loginForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+    alert( "Please provide your email or an invalid email address" );
+    document.loginForm.email.focus() ;
+    return false;
+ }
+ if( document.loginForm.password.value == "" ) {
+    alert( "Password is required" );
+    document.loginForm.subject.focus() ;
+    return false;
+ }
+//  if( document.contactForm.password.value.length<6 ) {
+//   alert( "Password length must be greater than or equal 6" );
+//   document.contactForm.subject.focus() ;
+//   return false;
+// }
+// if( document.contactForm.password.value== document.contactForm.cpassword.value ) {
+//   alert( "Password must equal" );
+//   document.contactForm.subject.focus() ;
+//   return false;
+// }
+
+ 
+  return (true);
+}
+
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    // alert("You have entered an invalid email address!")
+    return (false)
+}

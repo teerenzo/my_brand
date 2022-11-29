@@ -574,6 +574,12 @@ input[type=text]{
     padding: 10px 22px;
     width: 100%;
 }
+input[type=password]{
+    border: 1px solid #FF5959;
+    border-radius: 6px;
+    padding: 10px 22px;
+    width: 100%;
+}
 textarea{
     border: 1px solid #FF5959;
     border-radius: 6px;

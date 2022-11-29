@@ -459,14 +459,14 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                   <form action="" method="get">
+                   <form method="post" name="contactForm" onsubmit="return(validate());">
                     <label for="email">email</label>
                     <input type="text" name="email" id="">
                     <label for="subject">subject</label>
                     <input type="text" name="subject" id="">
                     <label for="message">message</label>
                     <textarea name="message" id="" cols="30" rows="10"></textarea>
-                      <button class="btn-contact">Send</button>
+                      <button type="submit" class="btn-contact">Send</button>
                    </form>
                 </div>
             </div>
