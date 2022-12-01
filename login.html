@@ -14,46 +14,45 @@
             <div class="icon-login"></div>
         </div>
         <div class="form">
-            <form method="post" name="loginForm" onsubmit="return(validateLogin());" >
+            <form  action=""  name="loginForm" onsubmit="return(validateLogin());">
                 <label for="email">Email</label>
+                <p class="error" id="email-error"></p>
                 <input type="text" name="email" id="">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="">
+                <p class="error" id="password-error"></p>
+                <input type="password" name="password" id="password">
             <div class="btn-login-sect">
-              <button type="submit" class="btn-second">Login</button>
+              <button type="submit"  class="btn-second">Login</button>
                 <h3>or</h3>
                 <a href="./signup.html">Signup</a>
             </div>     
             </form>
         </div>
      </div>
-     <script src="./javascript.js"></script>
+     <!-- <script src="./javascript.js"></script> -->
      <script>
         const validateLogin = e =>{
-  console.log("he")
-  if( document.loginForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
-    alert( "Please provide your email or an invalid email address" );
+          console.log(document.loginForm.password.value)
+  const email=document.getElementById('email-error')
+  const password_error=document.getElementById('password-error')
+  const password=document.getElementById('password')
+
+ 
+  if(document.loginForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+    email.innerHTML="Please provide your email or check if email is valid email address"
+    password.innerHTML=""
+  
     document.loginForm.email.focus() ;
     return false;
  }
- if( document.loginForm.password.value == "" ) {
-    alert( "Password is required" );
-    document.loginForm.subject.focus() ;
+ if(document.loginForm.password.value == "") {
+    // password_error.innerHTML="Password is required"
+    // document.loginForm.password.focus() ;
     return false;
  }
-//  if( document.contactForm.password.value.length<6 ) {
-//   alert( "Password length must be greater than or equal 6" );
-//   document.contactForm.subject.focus() ;
-//   return false;
-// }
-// if( document.contactForm.password.value== document.contactForm.cpassword.value ) {
-//   alert( "Password must equal" );
-//   document.contactForm.subject.focus() ;
-//   return false;
-// }
 
- 
-  return (true);
+ return true;
+
 }
 function ValidateEmail(mail) 
 {

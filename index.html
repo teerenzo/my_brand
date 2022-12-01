@@ -459,12 +459,16 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                   <form method="post" name="contactForm" onsubmit="return(validate());">
+                   <form method="post" action="index.html" id="contactForm" name="contactForm" onsubmit="return(validate());">
                     <label for="email">email</label>
+                  
                     <input type="text" name="email" id="">
+                    <p class="error" id="email-error"></p>
                     <label for="subject">subject</label>
                     <input type="text" name="subject" id="">
+                    <p class="error" id="subject-error"></p>
                     <label for="message">message</label>
+                    <p class="error" id="message-error"></p>
                     <textarea name="message" id="" cols="30" rows="10"></textarea>
                       <button type="submit" class="btn-contact">Send</button>
                    </form>

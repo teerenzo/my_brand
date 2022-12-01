@@ -53,14 +53,21 @@
                     <form action="" id="AddArticleForm" name="articleForm" onsubmit="return(validateArticle())">
                         <div>
                           <h4>Title</h4>
+                <p class="error" id="title-error"></p>
+
                           <input type="text" id="title" name="title" placeholder="  Article Title"  />
                         </div>
                         <div id="cover">
+          
+
                           <h4>Image</h4>
+                          <p class="error" id="image-error"></p>
                           <input type="file" id="file" name="image" />
                         </div>
                         <div>
                           <h4>Body</h4>
+                <p class="error" id="body-error"></p>
+
                           <textarea type="text" placeholder="body Title" rows="5" id="body" name="body" required></textarea>
                         </div>
                       <br>
@@ -77,14 +84,22 @@
   <script>
   CKEDITOR.replace("body");
   const validateArticle = e =>{
+    const title=document.getElementById('title-error')
+          const image_error=document.getElementById('image-error')
+  const password_error=document.getElementById('password-error')
   console.log("he")
   if( document.articleForm.title.value == "" ) {
-    alert( "title is required" );
-    document.articleForm.username.focus() ;
+  
+
+    title.innerHTML="title is required"
+    image_error.innerHTML=""
+    document.articleForm.title.focus() ;
     return false;
  }
   if( document.articleForm.image.value == "" ||  !ValidateEmail(document.signupForm.email.value) ) {
-    alert( "Image is required" );
+  
+    image_error.innerHTML="Image is required"
+    title.innerHTML=""
     document.articleForm.image.focus() ;
     return false;
  }
@@ -97,10 +112,10 @@
  
 
  
-  return (true);
+  // return (true);
 }
   </script>
-   <script src="./javascript.js"></script>
+   <!-- <script src="./javascript.js"></script> -->
 
 </body>
 </html>
