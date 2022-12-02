@@ -21,9 +21,10 @@
                 <label for="password">Password</label>
                 <p class="error" id="password-error"></p>
                 <input type="password" name="password" id="password">
-             
+   
             <div class="btn-login-sect">
             
+
 
               <button type="submit"  class="btn-second">Login</button>
                 <h3>or</h3>
@@ -40,11 +41,13 @@
   const email=document.getElementById('email-error')
   const password_error=document.getElementById('password-error')
   const password=document.getElementById('password')
+
   const succes_error=document.getElementById('success-error')
  
 
  
   if(document.loginForm.email.value == "" ||  !ValidateEmail(document.loginForm.email.value) ) {
+
     email.innerHTML="Please provide your email or check if email is valid email address"
     password.innerHTML=""
   
@@ -52,6 +55,7 @@
     return false;
  }
  if(document.loginForm.password.value == "") {
+
     password_error.innerHTML="Password is required"
     document.loginForm.password.focus() ;
     return false;
@@ -69,6 +73,7 @@
     return false;
  }
  
+
 
  return true;
 
