@@ -164,7 +164,9 @@ const validate = e =>{
   const email=document.getElementById('email-error')
   const subject=document.getElementById('subject-error')
   const sms=document.getElementById('message-error')
+
   const internet_error=document.getElementById('internet-error')
+
 
   if( document.contactForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
     // alert( "Please provide your email or an invalid email address" );
@@ -190,6 +192,7 @@ const validate = e =>{
   document.contactForm.message.focus() ;
   return false;
 }
+
 if(document.contactForm.message.value != ""){
   email.innerHTML=""
   subject.innerHTML=""
@@ -198,7 +201,6 @@ if(document.contactForm.message.value != ""){
   return false
 }
 
- 
   return (true);
 }
 
