@@ -164,6 +164,7 @@ const validate = e =>{
   const email=document.getElementById('email-error')
   const subject=document.getElementById('subject-error')
   const sms=document.getElementById('message-error')
+  const internet_error=document.getElementById('internet-error')
 
   if( document.contactForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
     // alert( "Please provide your email or an invalid email address" );
@@ -188,6 +189,13 @@ const validate = e =>{
   // alert( "Please provide your message!" );
   document.contactForm.message.focus() ;
   return false;
+}
+if(document.contactForm.message.value != ""){
+  email.innerHTML=""
+  subject.innerHTML=""
+  sms.innerHTML=""
+  internet_error.innerHTML="check your  internet connections"
+  return false
 }
 
  
@@ -224,9 +232,7 @@ const saveContact = e => {
    
   
   }
-  if(validate()){
-    document.getElementById('contactForm').addEventListener('submit', saveContact)
-  }
+
 
 
 

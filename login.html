@@ -21,11 +21,15 @@
                 <label for="password">Password</label>
                 <p class="error" id="password-error"></p>
                 <input type="password" name="password" id="password">
+             
             <div class="btn-login-sect">
+            
+
               <button type="submit"  class="btn-second">Login</button>
                 <h3>or</h3>
                 <a href="./signup.html">Signup</a>
-            </div>     
+            </div>   
+            <p class="error" id="success-error"></p>  
             </form>
         </div>
      </div>
@@ -36,9 +40,11 @@
   const email=document.getElementById('email-error')
   const password_error=document.getElementById('password-error')
   const password=document.getElementById('password')
+  const succes_error=document.getElementById('success-error')
+ 
 
  
-  if(document.loginForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+  if(document.loginForm.email.value == "" ||  !ValidateEmail(document.loginForm.email.value) ) {
     email.innerHTML="Please provide your email or check if email is valid email address"
     password.innerHTML=""
   
@@ -46,10 +52,23 @@
     return false;
  }
  if(document.loginForm.password.value == "") {
-    // password_error.innerHTML="Password is required"
-    // document.loginForm.password.focus() ;
+    password_error.innerHTML="Password is required"
+    document.loginForm.password.focus() ;
     return false;
  }
+ if(document.loginForm.password.value != "12345") {
+  password.innerHTML=""
+  password_error.innerHTML=""
+  succes_error.innerHTML="password or email not correct."
+    document.loginForm.password.focus() ;
+    return false;
+ }
+ if(document.loginForm.password.value == "123456" && document.loginForm.email.value=="teerenzo.co@gmail.com" ) {
+  succes_error.innerHTML=" correct."
+  location.href='./dashboard.html'
+    return false;
+ }
+ 
 
  return true;
 
