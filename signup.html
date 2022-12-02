@@ -14,22 +14,101 @@
             <div class="icon-login"></div>
         </div>
         <div class="form">
-            <form action="" method="post">
+            <form  method="post" name="signupForm" onsubmit="return(validateSignUp())">
                 <label for="email">username</label>
-                <input type="text" name="email" id="">
+                <p class="error" id="username-error"></p>
+
+                <input type="text" name="username" id="username">
                 <label for="password">Email</label>
-                <input type="text" name="password" id="">
+                <p class="error" id="email-error"></p>
+
+                <input type="text" name="email" id="email">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="">
+                <p class="error" id="password-error"></p>
+
+                <input type="password" name="password" id="password">
                 <label for="password">comfirm password</label>
-                <input type="text" name="password" id="">
+                <p class="error" id="cpassword-error"></p>
+
+                <input type="password" name="cpassword" id="cpassword">
             <div class="btn-login-sect">
-                <button class="btn-second">SignUp</button>
+                <button type="submit" class="btn-second">SignUp</button>
                 <h3>or</h3>
                 <a href="./login.html">Login</a>
             </div>     
             </form>
         </div>
      </div>
+     <script>
+        const validateSignUp = e =>{
+          const email=document.getElementById('email-error')
+          const username_error=document.getElementById('username-error')
+  const password_error=document.getElementById('password-error')
+  const cpassword_error=document.getElementById('cpassword-error')
+  if( document.signupForm.username.value == "" ) {
+    // alert( "username is required" );
+    username_error.innerHTML="username is required"
+    document.signupForm.username.focus() ;
+    return false;
+ }
+  if( document.signupForm.email.value == "" ||  !ValidateEmail(document.signupForm.email.value) ) {
+    // alert( "Please provide your email or an invalid email address" );
+    email.innerHTML="Please provide your email or an invalid email address"
+    username_error.innerHTML=""
+    password_error.innerHTML=""
+    cpassword_error.innerHTML=""
+    username_error.innerHTML=""
+    document.signupForm.email.focus() ;
+    return false;
+ }
+ if( document.signupForm.password.value == "" ) {
+    // alert( "Password is required" );
+    password_error.innerHTML="Password is required"
+    email.innerHTML=""
+    username_error.innerHTML=""
+ 
+    cpassword_error.innerHTML=""
+    username_error.innerHTML=""
+    document.signupForm.password.focus() ;
+    return false;
+ }
+
+ if( document.signupForm.password.value.length<6 ) {
+  // alert( "Password length must be greater than or equal 6" );
+  password_error.innerHTML="Password length must be greater than or equal 6"
+  // password_error.innerHTML="Password is required"
+    email.innerHTML=""
+    username_error.innerHTML=""
+ 
+    cpassword_error.innerHTML=""
+    username_error.innerHTML=""
+  document.signupForm.password.focus() ;
+  return false;
+}
+if( document.signupForm.password.value != document.signupForm.cpassword.value ) {
+  // alert( "l" );
+  cpassword_error.innerHTML="Password must equal"
+    email.innerHTML=""
+    username_error.innerHTML=""
+ 
+    password_error.innerHTML=""
+    username_error.innerHTML=""
+  // document.signupForm.subject.focus() ;
+  return false;
+}
+
+ 
+  return (true);
+}
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    // alert("You have entered an invalid email address!")
+    return (false)
+}
+</script>
 </body>
 </html>

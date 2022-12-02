@@ -158,3 +158,84 @@ else if(window.scrollY > 3400 && window.scrollY <= 4000){
         myNav.classList.remove("nav-colored");
     }
 };
+
+
+const validate = e =>{
+  const email=document.getElementById('email-error')
+  const subject=document.getElementById('subject-error')
+  const sms=document.getElementById('message-error')
+
+  if( document.contactForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+    // alert( "Please provide your email or an invalid email address" );
+    email.innerHTML="Please provide your email or check if email is valid email address"
+    subject.innerHTML=""
+    sms.innerHTML=""
+    document.contactForm.email.focus() ;
+    return false;
+ }
+ if( document.contactForm.subject.value == "" ) {
+
+    email.innerHTML=""
+    subject.innerHTML="Please provide your subject!"
+    sms.innerHTML=""
+    document.contactForm.subject.focus() ;
+    return false;
+ }
+ if( document.contactForm.message.value == "" ) {
+  email.innerHTML=""
+  subject.innerHTML=""
+  sms.innerHTML="Please provide your message!"
+  // alert( "Please provide your message!" );
+  document.contactForm.message.focus() ;
+  return false;
+}
+
+ 
+  return (true);
+}
+
+const saveContact = e => {
+  e.preventDefault();
+  
+  const messageList = JSON.parse(localStorage.getItem('messages')) || [];
+  
+    
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, "0");
+  var month = String(today.getMonth() + 1).padStart(2, "0"); 
+  var year = today.getFullYear();
+  postedDate = day + "/" + month + "/" + year;
+  
+  var contact = {
+  'id':Math.floor(Math.random()*10000),
+  "email":document.contactForm.email.value,
+  "subject":document.contactForm.email.value,
+  "message":document.contactForm.email.value,
+  "pdate":postedDate
+  }
+  
+  
+  messageList.push(contact);
+  
+  console.log(messageList)
+  
+  localStorage.setItem("messages",JSON.stringify(messageList))
+  document.getElementById('contactForm').reset()
+   
+  
+  }
+  if(validate()){
+    document.getElementById('contactForm').addEventListener('submit', saveContact)
+  }
+
+
+
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    // alert("You have entered an invalid email address!")
+    return (false)
+}

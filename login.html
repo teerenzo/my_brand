@@ -14,18 +14,55 @@
             <div class="icon-login"></div>
         </div>
         <div class="form">
-            <form action="./dashboard.html" method="post">
+            <form  action=""  name="loginForm" onsubmit="return(validateLogin());">
                 <label for="email">Email</label>
+                <p class="error" id="email-error"></p>
                 <input type="text" name="email" id="">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="">
+                <p class="error" id="password-error"></p>
+                <input type="password" name="password" id="password">
             <div class="btn-login-sect">
-                <a href="./dashboard.html"><button class="btn-second">Login</button></a>
+              <button type="submit"  class="btn-second">Login</button>
                 <h3>or</h3>
                 <a href="./signup.html">Signup</a>
             </div>     
             </form>
         </div>
      </div>
+     <!-- <script src="./javascript.js"></script> -->
+     <script>
+        const validateLogin = e =>{
+          console.log(document.loginForm.password.value)
+  const email=document.getElementById('email-error')
+  const password_error=document.getElementById('password-error')
+  const password=document.getElementById('password')
+
+ 
+  if(document.loginForm.email.value == "" ||  !ValidateEmail(document.contactForm.email.value) ) {
+    email.innerHTML="Please provide your email or check if email is valid email address"
+    password.innerHTML=""
+  
+    document.loginForm.email.focus() ;
+    return false;
+ }
+ if(document.loginForm.password.value == "") {
+    // password_error.innerHTML="Password is required"
+    // document.loginForm.password.focus() ;
+    return false;
+ }
+
+ return true;
+
+}
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    // alert("You have entered an invalid email address!")
+    return (false)
+}
+     </script>
 </body>
 </html>
