@@ -29,7 +29,7 @@ box-sizing: border-box;
 }
 .nav-footer{
     display: flex;
-  margin-top: 30px;
+  margin-top: 15px;
   justify-content:space-evenly;
 }
 .nav .nav-footer img {
@@ -759,7 +759,7 @@ display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.login .form form input[type=text]{
+.login .form form input[type=text],input[type=password]{
     width: 80%;
 }
 .icon-login{
@@ -1129,6 +1129,18 @@ padding: 7px;
 .view-articles .article-card img{
     width: 27px;
     height: 27px;
+}
+.logod{
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    border-radius: 50px;
+    width: 80px;
+    background-color: #FF5959;
+    height: 80px;
+    padding: 20px;
 }
 
 .logout{
