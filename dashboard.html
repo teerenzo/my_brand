@@ -38,7 +38,7 @@
                     <p>Settings</p>
                     <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
                     <div id="myLink" class="logout">
-                        <a href="">Logout</a>
+                        <a href="" id="logoutBtn">Logout</a>
                     </div>
                 </div>
                
@@ -71,9 +71,9 @@
             </div>
 
                    </div>
-                   <div class="messages">
+                   <div class="messages" id="comment-view">
      <p class="head">Messages</p>
-     <div class="dashboard-message">
+     <div class="dashboard-message" >
         <h3>John Doe</h3>
         <p>hello this is just testing</p>
 
@@ -82,6 +82,8 @@
             <button class="btn-delete">Delete</button>
         </div>
      </div>
+
+     
                    </div>
             </div>
             
@@ -89,5 +91,59 @@
         </div>
    </div>
    <script src="./javascript.js"></script>
+   <script>
+     const reference = document.getElementById("comment-view")
+    function getComment(){
+  const messageList = JSON.parse(localStorage.getItem('messages')) || []
+
+  var data=``;
+if(messageList.length<=0){
+  data+=`<h1>Empty List</h1>`
+}else{
+  
+
+  for (let index = 0; index < messageList.length; index++) {
+     
+    data+=`<div class="dashboard-message" >
+        <h3>${messageList[index]['email']}</h3>
+        <h4 style="color:blue">${messageList[index]['subject']}</h4>
+        <p>${messageList[index]['message']}</p>
+
+        <div class="btn-sms">
+            <a href='mailto:${messageList[index]['email']}' target='blank'> <button class="btn-reply">Reply</button></a>
+            <button onclick="deleteMessage(${messageList[index]['id']})" class="btn-delete">Delete</button>
+        </div>
+     </div>`
+       
+  }
+    }
+  reference.innerHTML = data;
+
+}
+getComment()
+const deleteMessage = id => {
+      const messages = JSON.parse(localStorage.getItem('messages')) || []
+      const newMessages = messages.filter(item => item.id != id);
+      localStorage.setItem('messages', JSON.stringify(newMessages));
+      location.href = './dashboard.html'
+      getMessage();
+    }
+    const isAdminLogedIn=()=>{
+  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+  if (loginedUser.role != "admin" || !loginedUser) {
+    location.href='../login.html'
+  }
+}
+isAdminLogedIn()
+
+const logout = () => {
+  localStorage.removeItem("loginedUser");
+  location.href='../index.html'
+};
+
+document.getElementById("logoutBtn").addEventListener('click',logout)
+
+
+   </script>
 </body>
 </html>

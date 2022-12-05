@@ -49,7 +49,7 @@
                     <h3>View Articles</h3>
                     <hr>
                 </div>
-                <div class="view-articles">
+                <div class="view-articles" id="articles">
                      
                     <div class="article-card">
                         <div class="title-article">
@@ -93,7 +93,40 @@
   <script src="./javascript.js"></script>
   <script>
   CKEDITOR.replace("body");
-
+  let articles;
+    const getArticleOnDashbaord = () => {
+      articles = JSON.parse(localStorage.getItem("articles"));
+      let dataToDisplay = '';
+      articles.forEach(element => {
+        dataToDisplay += `    <div class="article-card">
+                        <div class="title-article">
+                            <img id="img" src="data:image/png;base64,${element.image}" alt="" />
+                         <div class="subtitle">
+                            <h3>${element['title']}</h3>
+                            <p>${element['body']}</p>
+                            </div>
+                        </div>
+                        <div class="action">
+                            <!-- <img src="./resources/Remove red eye.svg" alt=""> -->
+                            <img src="./resources/Mode edit.svg" onclick="update(${element['id']})" alt="">
+                            <img onclick="deleteArticle(${element['id']})" src="./resources/Delete.svg" alt="" srcset="">
+                        </div>
+                    </div>`;
+      });
+      document.getElementById('articles').innerHTML = dataToDisplay;
+    }
+    getArticleOnDashbaord()
+    const update = id => {
+      localStorage.setItem('updateId', id);
+      location.href = './addArticle.html'
+    }
+    
+    const deleteArticle = id => {
+      console.log(id)
+      articles = articles.filter((item) => item.id != id);
+      localStorage.setItem('articles', JSON.stringify(articles));
+      getArticleOnDashbaord()
+    }
   </script>
 </body>
 </html>

@@ -197,8 +197,34 @@ if(document.contactForm.message.value != ""){
   email.innerHTML=""
   subject.innerHTML=""
   sms.innerHTML=""
-  internet_error.innerHTML="check your  internet connections"
+  const messageList = JSON.parse(localStorage.getItem('messages')) || [];
+  
+    
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, "0");
+  var month = String(today.getMonth() + 1).padStart(2, "0"); 
+  var year = today.getFullYear();
+  postedDate = day + "/" + month + "/" + year;
+  
+  var contact = {
+  'id':Math.floor(Math.random()*10000),
+  "email":document.contactForm.email.value,
+  "subject":document.contactForm.subject.value,
+  "message":document.contactForm.message.value,
+  "pdate":postedDate
+  }
+  
+  
+  messageList.push(contact);
+  
+  console.log(messageList)
+  
+  localStorage.setItem("messages",JSON.stringify(messageList))
+  document.getElementById('contactForm').reset()
+  internet_error.style.color="blue"
+  internet_error.innerHTML="Your Comment Received, we will Contact you soon"
   return false
+
 }
 
   return (true);
@@ -219,8 +245,8 @@ const saveContact = e => {
   var contact = {
   'id':Math.floor(Math.random()*10000),
   "email":document.contactForm.email.value,
-  "subject":document.contactForm.email.value,
-  "message":document.contactForm.email.value,
+  "subject":document.contactForm.subject.value,
+  "message":document.contactForm.message.value,
   "pdate":postedDate
   }
   
@@ -247,3 +273,4 @@ function ValidateEmail(mail)
     // alert("You have entered an invalid email address!")
     return (false)
 }
+
