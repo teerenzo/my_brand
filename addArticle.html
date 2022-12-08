@@ -131,67 +131,9 @@ const showFile = (e) =>{
     document.articleForm.image.focus() ;
     return false;
  }
-//  if( document.articleForm.image.value != "" && document.articleForm.title.value!="") {
-  
-//   image_error.innerHTML="success"
-//   title.innerHTML=""
-     
-      
-//   return false;
-// }
   return true;
 }
-// if(document.articleForm.title.value != "") {
-// console.log("ggg")
-//     document.getElementById("file").required = "";
-//       var image;
-//       document.getElementById("file").addEventListener("change", (e) => {
-//         const file = e.target.files[0];
-//         const reader = new FileReader();
-//         reader.onloadend = () => {
-//           const base64String = reader.result
-//             .replace("data:", "")
-//             .replace(/^.+,/, "");
-//           image = base64String;
-//           print(image)
-//           // document.body.style.background = `url(data:image/png;base64,${base64String})`;
-//         };
-//         reader.readAsDataURL(file);
-//       });
 
-//       // document
-//       //   .getElementById("AddArticleForm")
-//       //   .addEventListener("submit", (event) => {
-//           event.preventDefault();
-//           const title = document.getElementById("title").value;
-//           const body = CKEDITOR.instances.body.getData();
-//           // const tag = document.getElementById("tag").value;
-
-//           var today = new Date();
-//           var dd = String(today.getDate()).padStart(2, "0");
-//           var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-//           var yyyy = today.getFullYear();
-
-//           today = dd + "/" + mm + "/" + yyyy;
-
-//           const postedDate = today;
-//           const Article = {
-//             id: Math.floor(Math.random() * 1000000),
-//             title,
-//             body,
-//             image: image,
-//             comments: [],
-//             likes: [],
-//             postedDate,
-//           };
-//           var articles = JSON.parse(localStorage.getItem("articles") || "[]");
-//           // Put the object into storage
-//           articles.push(Article);
-//           localStorage.setItem("articles", JSON.stringify(articles));
-//           // window.open("./view-article.html", "self");
-      
-//     return false;
-//  }
 if (localStorage.getItem("updateId")) {
       let id = localStorage.getItem("updateId");
       const imgPrevier = document.getElementById("img")
