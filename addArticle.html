@@ -38,7 +38,7 @@
                     <p>Settings</p>
                     <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
                     <div id="myLink" class="logout">
-                        <a href="">Logout</a>
+                        <a href="" id="logoutBtn">Logout</a>
                     </div>
                 </div>
                
@@ -202,6 +202,24 @@ if (localStorage.getItem("updateId")) {
       var articleToUpdate = articles.filter((item) => item.id == id);
       articles = articles.filter((item) => item.id != id);
       imgPrevier.src = `data:image/jpg;base64,${articleToUpdate[0].image}`;
+      var image=articleToUpdate[0].image;
+      if(document.getElementById("cover").style.display=="none"){
+      
+      document.getElementById("file").addEventListener("change", (e) => {
+        const imgPrevier = document.getElementById("img")
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64String = reader.result
+            .replace("data:", "")
+            .replace(/^.+,/, "");
+          image = base64String;
+          // console.log(image)
+          imgPrevier.src = `data:image/png;base64,${base64String}`;
+        };
+        reader.readAsDataURL(file);
+      });
+      }
       document.getElementById("title").value = articleToUpdate[0].title;
       document.getElementById("body").value = articleToUpdate[0].body;
 
@@ -217,7 +235,7 @@ if (localStorage.getItem("updateId")) {
             id,
             title,
             body,
-            image: articleToUpdate[0].image,
+            image: image,
             comments: articleToUpdate[0].comments,
             likes: articleToUpdate[0].likes,
             postedDate: articleToUpdate[0].postedDate,
@@ -282,6 +300,20 @@ document.getElementById("file").required = "";
           window.open("./viewArticle.html", "self");
         });
       }
+      const isAdminLogedIn=()=>{
+  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+  if (loginedUser.role != "admin" || !loginedUser) {
+    location.href='../login.html'
+  }
+}
+isAdminLogedIn()
+
+const logout = () => {
+  localStorage.removeItem("loginedUser");
+  location.href='../index.html'
+};
+
+document.getElementById("logoutBtn").addEventListener('click',logout)
   </script>
    <script src="./javascript.js"></script>
 
