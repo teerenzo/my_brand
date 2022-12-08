@@ -14,7 +14,7 @@
             <div class="icon-login"></div>
         </div>
         <div class="form">
-            <form  method="post" name="signupForm" onsubmit="return(validateSignUp())">
+            <form  method="post" name="signupForm" id="signupForm" onsubmit="return(validateSignUp())">
                 <label for="email">username</label>
                 <p class="error" id="username-error"></p>
 
@@ -31,6 +31,7 @@
                 <p class="error" id="cpassword-error"></p>
 
                 <input type="password" name="cpassword" id="cpassword">
+                <p class="error" id="success"></p>
             <div class="btn-login-sect">
                 <button type="submit" class="btn-second">SignUp</button>
                 <h3>or</h3>
@@ -45,6 +46,7 @@
           const username_error=document.getElementById('username-error')
   const password_error=document.getElementById('password-error')
   const cpassword_error=document.getElementById('cpassword-error')
+  const success=document.getElementById('success')
   if( document.signupForm.username.value == "" ) {
     // alert( "username is required" );
     username_error.innerHTML="username is required"
@@ -95,6 +97,37 @@ if( document.signupForm.password.value != document.signupForm.cpassword.value ) 
     username_error.innerHTML=""
   // document.signupForm.subject.focus() ;
   return false;
+}
+if(document.signupForm.password.value == document.signupForm.cpassword.value ){
+  const UserList = JSON.parse(localStorage.getItem('users')) || [];
+  
+    
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, "0");
+  var month = String(today.getMonth() + 1).padStart(2, "0"); 
+  var year = today.getFullYear();
+  postedDate = day + "/" + month + "/" + year;
+  
+  var user = {
+  'id':Math.floor(Math.random()*10000),
+  "username":document.signupForm.username.value,
+  "email":document.signupForm.email.value,
+  "role":"vistor",
+  "password":document.signupForm.password.value,
+  "cdate":postedDate
+  }
+  
+  
+  UserList.push(user);
+  
+  console.log(UserList)
+  
+  localStorage.setItem("users",JSON.stringify(UserList))
+  document.getElementById('signupForm').reset()
+  success.style.color="blue"
+  success.innerHTML="Account Created"
+  location.href="./login.html"
+  return false
 }
 
  

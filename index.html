@@ -13,7 +13,7 @@
   
         <section class="nav">
             <div class="logo">
-                <img src="./resources/images.jfif" alt="" srcset="">
+                <img src="./resources/RENZAHO.jpg" alt="" srcset="">
             </div>
             <div class="nav_name">
                 <h2>Teerenzo</h2>
@@ -128,7 +128,7 @@
                 <div class="line"></div>
             </div>
             <div class="about-img">
-                <img src="./resources/images.jfif" alt="" srcset="">
+                <img src="./resources/RENZAHO.jpg" width="100" height="100" alt="" srcset="">
                 <div class="about-me">
                     <h3>Hello,</h3>
                     <h2>
@@ -402,7 +402,7 @@
                 <div class="line"></div>
             </div>
                 
-            <div class="post-container">
+            <div class="post-container" id="post-container">
              <div class="post">
                 <a href="./viewBlog.html">
                     <img src="./resources/1 (2) 1.png" alt="" srcset="">
@@ -484,5 +484,32 @@
     </div>
 
 <script src="./javascript.js"></script>
+<script>
+     const getArticleOnIndex = () => {
+      const articles = JSON.parse(localStorage.getItem("articles"));
+      let dataToDisplay = ``;
+      articles.forEach(element => {
+        dataToDisplay += `  <div class="post">
+        
+                <a href="./viewBlog.html" onclick="readMore('${element.id}')">
+                    <img src="data:image/png;base64,${element.image}" alt="" srcset="">
+                    <h2>${element.title}</h2>
+                    <div class="post-footer">
+                        <p> ${element.postedDate}</p>
+                        <div class="iconPost"></div>
+                        <h4>Renzo</h4>
+                    </div>
+                </a> 
+                </div>
+          `
+      })
+      document.getElementById('post-container').innerHTML = dataToDisplay
+    }
+    getArticleOnIndex()
+    const readMore = article => {
+      localStorage.setItem('articleToRead', article);
+      // console.log(article)
+    }
+</script>
 </body>
 </html>

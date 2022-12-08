@@ -486,13 +486,16 @@ border-radius: 5px;
 
 .post-container .post{
   width: 30%;
+
   padding: 6px;
 }
 .post-container .post img{
     width: 100%;
+    min-height: 80%;
     border-radius: 5px;
 }
 .post-container .post h2{
+    text-align: center;
     font-size: 19px;
     font-weight: bold;
 }
@@ -810,7 +813,7 @@ display: flex;
         width: 70%;
     }
     .login .form form input[type=text]{
-        width: 100%;
+        width: 80%;
     }
     .dashboard-content .form-article form{
         width: 100%;
@@ -1036,11 +1039,11 @@ padding: 7px;
 
 }
 .dashboard-message{
+    margin-top: 10px;
     padding: 10px;
     width: 80%;
        box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
        border-radius: 6px;
-
 }
 .dashboard-message p{
     padding-left: 10px;
@@ -1120,6 +1123,14 @@ padding: 7px;
    border-radius: 4px;
    box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
    margin-top: 10px;
+
+}
+.view-articles .article-card .title-article{
+    display: flex;
+}
+.view-articles .article-card .title-article img{
+   height: 130px;
+   width: 130px;
 
 }
 .view-articles .article-card p{

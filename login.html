@@ -14,10 +14,10 @@
             <div class="icon-login"></div>
         </div>
         <div class="form">
-            <form  action=""  name="loginForm" onsubmit="return(validateLogin());">
+            <form  action="" method="post" name="loginForm" id="loginForm" onsubmit="return(validateLogin());">
                 <label for="email">Email</label>
                 <p class="error" id="email-error"></p>
-                <input type="text" name="email" id="">
+                <input type="text" name="email" id="email">
                 <label for="password">Password</label>
                 <p class="error" id="password-error"></p>
                 <input type="password" name="password" id="password">
@@ -60,18 +60,18 @@
     document.loginForm.password.focus() ;
     return false;
  }
- if(document.loginForm.password.value != "123456") {
-  password.innerHTML=""
-  password_error.innerHTML=""
-  succes_error.innerHTML="password or email not correct."
-    document.loginForm.password.focus() ;
-    return false;
- }
- if(document.loginForm.password.value == "123456" && document.loginForm.email.value=="teerenzo.co@gmail.com" ) {
-  succes_error.innerHTML=" correct."
-  location.href='./dashboard.html'
-    return false;
- }
+//  if(document.loginForm.password.value != "123456") {
+//   password.innerHTML=""
+//   password_error.innerHTML=""
+//   succes_error.innerHTML="password or email not correct."
+//     document.loginForm.password.focus() ;
+//     return false;
+//  }
+//  if(document.loginForm.password.value == "123456" && document.loginForm.email.value=="teerenzo.co@gmail.com" ) {
+//   succes_error.innerHTML=" correct."
+//   location.href='./dashboard.html'
+//     return false;
+//  }
  
 
 
@@ -87,6 +87,26 @@ function ValidateEmail(mail)
     // alert("You have entered an invalid email address!")
     return (false)
 }
+document.getElementById("loginForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users.filter(
+          (item) => item.email == email && item.password == password
+        );
+        if (user.length > 0) {
+          localStorage.setItem("loginedUser", JSON.stringify(user[0]));
+          if (user[0].role == "admin") {
+            location.href = "./dashboard.html";
+          } else {
+            location.href = "./viewblog.html";
+          }
+        } else alert("worng password or email");
+        // console.log(user[0].role);
+      });
      </script>
 </body>
 </html>
