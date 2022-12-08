@@ -82,10 +82,8 @@
       document.getElementById('image').src = `data:image/png;base64,${article[0].image}`;
       document.getElementById('title').innerHTML = article[0].title
       document.getElementById('body').innerHTML = article[0].body
-    //   document.getElementById('date').innerHTML = article[0].postedDate
 
       document.getElementById('likesContainer').innerHTML = article[0].likes.length
-      // console.log(article)
       isLikeByMe()
     }
 
@@ -93,7 +91,6 @@
       const container = document.getElementById("commentsContainer");
       const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
       const commments = article[0].comments || []
-      // console.log(article[0].comments)
       commments.forEach(element => {
         container.innerHTML += `    <div class="comments">
         <img src="./resources/bi_person-circle.svg" alt="" srcset="">
@@ -104,7 +101,6 @@
         </div>
     </div></a>`;
       });
-    //   document.getElementById('commentNumber').innerHTML = commments.length > 1 ? `${commments.length} Comments` : `${commments.length} Comment`
       document.getElementById('commentIcon').innerHTML = commments.length
 
     }
@@ -158,7 +154,6 @@
       localStorage.setItem("articles", JSON.stringify(articles));
       location.reload()
     }
-    // document.getElementById('commentIcon').innerHTML = commments.length
     document.getElementById('commentForm').addEventListener('submit', comment)
     const likeArticle = () => {
       if (!user) {
