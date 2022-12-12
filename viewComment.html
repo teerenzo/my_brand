@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+</head>
+<body>
+   <div class="page-container">
+        <div class="sidebar">
+            <h3>Teerenzo</h3>
+            <div class="nav-menu">
+               <ul>
+                <li><a href="./dashboard.html"> Dashboard </a></li>
+                <li> <a href="./addArticle.html"> Add Article </a></li>
+                <li><a href="./viewArticle.html"> View Article</a></li>
+               </ul>
+            </div>
+         
+        </div>
+        <div class="main">
+            <div class="dashboard-menu">
+                <div class="dashboard-m-menu">
+                    <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;" alt="" srcset="">
+                    <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn"  alt="" srcset="">
+                    <div class="nav-menu" id="myLink2" >
+                        <a href="./dashboard.html"> Dashboard </a>
+                         <a href="./addArticle.html"> Add Article </a>
+                         <a href="./viewArticle.html"> View Article</a>
+                     </div>
+                </div>
+                <div>
+                    <p>Settings</p>
+                    <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
+                    <div id="myLink" class="logout">
+                        <a href="" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+               
+            </div>
+           
+            <div class="dashboard-content">
+                <div class="dashboard-content-title">
+                    <h3>View Comment</h3>
+                    <hr>
+                </div>
+                <div class="view-articles" id="articles">
+                     
+                
+                
+
+                </div>
+
+            </div>
+            
+          
+        </div>
+   </div>
+  <script src="./resources/assets/ckeditor/ckeditor.js"></script>
+  <script src="./javascript.js"></script>
+  <script>
+  CKEDITOR.replace("body");
+  const articles = JSON.parse(localStorage.getItem('articles'))
+  const getComments = () => {
+      const container = document.getElementById("articles");
+      const article = articles.filter(item => item.id == localStorage.getItem('commentToRead'))
+      const commments = article[0].comments || []
+      // console.log(article[0].comments)
+      commments.forEach(element => {
+        container.innerHTML += `<div class="article-card">
+                        <div class="title-article">
+                        
+                            <p>${element.message}</p>
+                        </div>
+                        <div class="action">
+                     
+                            <img onclick="deleteComment()" src="./resources/Delete.svg" alt="" srcset="">
+                        </div>
+                    </div>`;
+      });
+    }
+    getComments()
+
+    const isAdminLogedIn=()=>{
+  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+  if (loginedUser.role != "admin" || !loginedUser) {
+    location.href='../login.html'
+  }
+}
+
+isAdminLogedIn()
+
+const logout = () => {
+  localStorage.removeItem("loginedUser");
+  location.href='../index.html'
+};
+
+document.getElementById("logoutBtn").addEventListener('click',logout)
+const deleteComment = (e) =>{
+    var articleToUpdate = articles.filter((item) => item.id == localStorage.getItem('commentToRead'));
+    //   articles = articles.filter((item) => item.id != id);
+    const Newarticles = articles.filter(item => item.id != localStorage.getItem('commentToRead'))
+    const newComments = [];
+    const comments = articleToUpdate[0].comments || [];
+    comments.forEach(element => {
+           if(!element.email==e){
+            newComments.push(element.message)
+           }
+      });
+
+      const Article = {
+        id: articleToUpdate[0].id,
+        title: articleToUpdate[0].title,
+        body: articleToUpdate[0].body,
+        image: articleToUpdate[0].image,
+        comments: newComments,
+        likes: articleToUpdate[0].likes,
+        postedDate: articleToUpdate[0].postedDate,
+      };
+
+      Newarticles.push(Article)
+      localStorage.setItem("articles", JSON.stringify(Newarticles));
+      location.reload()
+    
+};
+  </script>
+</body>
+</html>

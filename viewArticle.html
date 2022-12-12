@@ -38,7 +38,7 @@
                     <p>Settings</p>
                     <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
                     <div id="myLink" class="logout">
-                        <a href="">Logout</a>
+                        <a href="" id="logoutBtn">Logout</a>
                     </div>
                 </div>
                
@@ -98,7 +98,7 @@
       articles = JSON.parse(localStorage.getItem("articles"));
       let dataToDisplay = '';
       articles.forEach(element => {
-        dataToDisplay += `    <div class="article-card">
+        dataToDisplay += `  <a href="./viewComment.html" onclick="readComments('${element.id}')">    <div class="article-card">
                         <div class="title-article">
                             <img id="img" src="data:image/png;base64,${element.image}" alt="" />
                          <div class="subtitle">
@@ -111,7 +111,7 @@
                             <img src="./resources/Mode edit.svg" onclick="update(${element['id']})" alt="">
                             <img onclick="deleteArticle(${element['id']})" src="./resources/Delete.svg" alt="" srcset="">
                         </div>
-                    </div>`;
+                    </div></a>`;
       });
       document.getElementById('articles').innerHTML = dataToDisplay;
     }
@@ -126,6 +126,24 @@
       articles = articles.filter((item) => item.id != id);
       localStorage.setItem('articles', JSON.stringify(articles));
       getArticleOnDashbaord()
+    }
+
+    const isAdminLogedIn=()=>{
+  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+  if (loginedUser.role != "admin" || !loginedUser) {
+    location.href='../login.html'
+  }
+}
+isAdminLogedIn()
+
+const logout = () => {
+  localStorage.removeItem("loginedUser");
+  location.href='../index.html'
+};
+
+document.getElementById("logoutBtn").addEventListener('click',logout)
+const readComments = article => {
+      localStorage.setItem('commentToRead', article);
     }
   </script>
 </body>

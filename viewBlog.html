@@ -44,17 +44,25 @@
     <div class="commentList" id="commentsContainer">
    
 </div>
-    <div class="leave-comment">
+    <div class="leave-comment" id="leaveComment" style="display: none">
         <p>Leave Comment</p>
         <form action="" method="post" id="commentForm">
             <textarea name="comment" id="message" cols="27" rows="10"></textarea>
             <button class="btn-contact">Comment</button>
         </form>
     </div>
+    <button class="btn-contact" id="btnContact" onclick="showComment()" style="margin-left: 10px">Do You Want to Comment?</button>
+    <br>
+    <br>
    </div>
    
 </div>
 <script>
+  const showComment= e=>{
+    document.getElementById("btnContact").style.display="none"
+    document.getElementById("leaveComment").style.display="block"
+    
+  }
      const articles = JSON.parse(localStorage.getItem("articles"));
  
      const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
@@ -74,10 +82,8 @@
       document.getElementById('image').src = `data:image/png;base64,${article[0].image}`;
       document.getElementById('title').innerHTML = article[0].title
       document.getElementById('body').innerHTML = article[0].body
-    //   document.getElementById('date').innerHTML = article[0].postedDate
 
       document.getElementById('likesContainer').innerHTML = article[0].likes.length
-      // console.log(article)
       isLikeByMe()
     }
 
@@ -85,7 +91,6 @@
       const container = document.getElementById("commentsContainer");
       const article = articles.filter(item => item.id == localStorage.getItem('articleToRead'))
       const commments = article[0].comments || []
-      // console.log(article[0].comments)
       commments.forEach(element => {
         container.innerHTML += `    <div class="comments">
         <img src="./resources/bi_person-circle.svg" alt="" srcset="">
@@ -94,7 +99,7 @@
             <p class="date">${element.postedDate}</p>
             <p> ${element.message}</p>
         </div>
-    </div>`;
+    </div></a>`;
       });
       document.getElementById('commentIcon').innerHTML = commments.length
 
@@ -149,7 +154,6 @@
       localStorage.setItem("articles", JSON.stringify(articles));
       location.reload()
     }
- 
     document.getElementById('commentForm').addEventListener('submit', comment)
     const likeArticle = () => {
       if (!user) {
@@ -201,6 +205,7 @@
         icon.src = './resources/ei_like.svg'
       }
     }
+
 </script>
 </body>
 </html>
