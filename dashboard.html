@@ -48,27 +48,22 @@
                     <div class="card-holder">
 <div class="card">
     <img src="./resources/Message.svg" alt="" srcset="">
-    <p>40 Message(s)</p>
+    <p id="messageNumber">40 Message(s)</p>
 </div>
 </div>
 <div class="card-holder">
     <div class="card">
         <img src="./resources/News.svg" alt="" srcset="">
-        <p>40 Articles(s)</p>
+        <p id="articleLength">40 Articles(s)</p>
     </div>
     </div>
     <div class="card-holder">
         <div class="card">
             <img src="./resources/Supervisor account.svg" alt="" srcset="">
-            <p>40 User(s)</p>
+            <p id="usersLength">40 User(s)</p>
         </div>
         </div>
-        <div class="card-holder">
-            <div class="card">
-                <img src="./resources/Message.svg" alt="" srcset="">
-                <p>40 Message(s)</p>
-            </div>
-            </div>
+   
 
                    </div>
                    <div class="messages" id="comment-view">
@@ -92,9 +87,16 @@
    </div>
    <script src="./javascript.js"></script>
    <script>
-     const reference = document.getElementById("comment-view")
+     const reference = document.getElementById("comment-view") 
+     const messageNumber = document.getElementById("messageNumber")
+     
     function getComment(){
   const messageList = JSON.parse(localStorage.getItem('messages')) || []
+  const articleList = JSON.parse(localStorage.getItem('articles')) || []
+  const usersList = JSON.parse(localStorage.getItem('users')) || []
+  messageNumber.innerHTML=articleList.length+" Message(s)"
+  document.getElementById("articleLength").innerHTML=articleList.length+" Article(s)"
+  document.getElementById("usersLength").innerHTML=usersList.length+" Users(s)"
 
   var data=``;
 if(messageList.length<=0){
