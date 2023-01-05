@@ -34,7 +34,7 @@
             </div>
             <div class="about-btn">
                
-                <a href="https://loansert.page.link/Ak1i"><button class="btn-hire">Back To App</button></a>
+               <button class="btn-hire" onclick="redirectToApp()">Back To App</button>
             </div>
            
          </div>
@@ -52,6 +52,9 @@
 
 <script src="./javascript.js"></script>
 <script>
+     const redirectToApp = () => {
+    window.open("https://loansert.page.link/Ak1i");
+  }
      const getArticleOnIndex = () => {
       const articles = JSON.parse(localStorage.getItem("articles"));
       let dataToDisplay = ``;
