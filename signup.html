@@ -88,45 +88,49 @@
   return false;
 }
 if( document.signupForm.password.value != document.signupForm.cpassword.value ) {
-  // alert( "l" );
   cpassword_error.innerHTML="Password must equal"
     email.innerHTML=""
     username_error.innerHTML=""
  
     password_error.innerHTML=""
     username_error.innerHTML=""
-  // document.signupForm.subject.focus() ;
   return false;
 }
 if(document.signupForm.password.value == document.signupForm.cpassword.value ){
-  const UserList = JSON.parse(localStorage.getItem('users')) || [];
-  
+
+
+  var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        "username": document.signupForm.username.value,
+        "email": document.signupForm.email.value,
+        "password": document.signupForm.password.value
+      });
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://mybrandapi.up.railway.app/api/account/signUp", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          if (result.success) {
+            alert("Your Account created Successfuly");
+            window.open("login.html", "_self");
+          }
+          else {
+            alert(result.message)
+            return false
+          }
+        })
+        .catch(error => console.log('error', error));
     
-  var today = new Date();
-  var day = String(today.getDate()).padStart(2, "0");
-  var month = String(today.getMonth() + 1).padStart(2, "0"); 
-  var year = today.getFullYear();
-  postedDate = day + "/" + month + "/" + year;
-  
-  var user = {
-  'id':Math.floor(Math.random()*10000),
-  "username":document.signupForm.username.value,
-  "email":document.signupForm.email.value,
-  "role":"vistor",
-  "password":document.signupForm.password.value,
-  "cdate":postedDate
-  }
-  
-  
-  UserList.push(user);
-  
-  console.log(UserList)
-  
-  localStorage.setItem("users",JSON.stringify(UserList))
-  document.getElementById('signupForm').reset()
-  success.style.color="blue"
-  success.innerHTML="Account Created"
-  location.href="./login.html"
+
   return false
 }
 
@@ -139,7 +143,6 @@ function ValidateEmail(mail)
   {
     return (true)
   }
-    // alert("You have entered an invalid email address!")
     return (false)
 }
 </script>

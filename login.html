@@ -34,7 +34,6 @@
             </form>
         </div>
      </div>
-     <!-- <script src="./javascript.js"></script> -->
      <script>
         const validateLogin = e =>{
           console.log(document.loginForm.password.value)
@@ -60,19 +59,7 @@
     document.loginForm.password.focus() ;
     return false;
  }
-//  if(document.loginForm.password.value != "123456") {
-//   password.innerHTML=""
-//   password_error.innerHTML=""
-//   succes_error.innerHTML="password or email not correct."
-//     document.loginForm.password.focus() ;
-//     return false;
-//  }
-//  if(document.loginForm.password.value == "123456" && document.loginForm.email.value=="teerenzo.co@gmail.com" ) {
-//   succes_error.innerHTML=" correct."
-//   location.href='./dashboard.html'
-//     return false;
-//  }
- 
+
 
 
  return true;
@@ -84,7 +71,6 @@ function ValidateEmail(mail)
   {
     return (true)
   }
-    // alert("You have entered an invalid email address!")
     return (false)
 }
 document.getElementById("loginForm").addEventListener("submit", (e) => {
@@ -93,20 +79,39 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.filter(
-          (item) => item.email == email && item.password == password
-        );
-        if (user.length > 0) {
-          localStorage.setItem("loginedUser", JSON.stringify(user[0]));
-          if (user[0].role == "admin") {
-            location.href = "./dashboard.html";
-          } else {
-            location.href = "./viewblog.html";
-          }
-        } else alert("worng password or email");
-        // console.log(user[0].role);
+        var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        "email": email,
+        "password": password
       });
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://mybrandapi.up.railway.app/api/account/login", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          if (result.success) {
+            localStorage.setItem("loginedUser", JSON.stringify(result.user));
+            if (result.user.role == "admin") {
+              location.href = "./dashboard.html";
+            } else {
+              location.href = "./viewBlog.html";
+            }
+          }
+          else {
+            alert(result.message)
+          }
+        })
+        .catch(error => console.log('error', error));
+    });
      </script>
 </body>
 </html>
