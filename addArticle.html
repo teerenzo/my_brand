@@ -65,7 +65,9 @@
             </div>
             <div id="changebtn">
               <br>
+
               <!-- <a class="btn-primary" id="change_btn" onclick="showFile()">Change Image</a> -->
+
               <br>
               <br>
             </div>
@@ -211,6 +213,7 @@
           const body = CKEDITOR.instances.body.getData();
           const image = document.getElementById("file");
           var myHeaders = new Headers();
+
           myHeaders.append("Authorization", `Bearer ${user.token}`);
 
           var formdata = new FormData();
@@ -220,17 +223,22 @@
 
          
 
+
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
+
             body: formdata,
+
             redirect: 'follow'
           };
 
           fetch("https://mybrandapi.up.railway.app/api/articles/add", requestOptions)
             .then(response => response.json())
             .then(result => {
+
               location.href = '../viewArticle.html'
+
             })
             .catch(error => console.log('error', error));;
 

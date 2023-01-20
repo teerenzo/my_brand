@@ -497,11 +497,13 @@
         .then(articles => {
           console.log(articles)
           articles.forEach(element => {
+
             const img = element.imageUrl;
         dataToDisplay += `  <div class="post">
         
                 <a href="./viewBlog.html" onclick="readMore('${element._id}')">
                     <img src="${img.replace('http','https')}" alt="" srcset="">
+
                     <h2>${element.title}</h2>
                     <div class="post-footer">
                         <p> ${element.postedDate}</p>
