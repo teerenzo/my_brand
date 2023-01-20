@@ -115,6 +115,7 @@
                     let dataToDisplay = '';
                     articles.forEach(element => {
                         var content = `${element['content']}`;
+                        console.log(`${element['content']}`);
                         dataToDisplay += ` <div class="article-card">
                         <div class="title-article">
                             <img id="img" src="${element.imageUrl}" alt="" />
