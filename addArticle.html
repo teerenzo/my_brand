@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-   <div class="page-container">
-        <div class="sidebar">
-          <div class="logod">
-            <!-- <p>logo</p> -->
-           </div>
-            <div class="nav-menu">
-               <ul>
-                <li><a href="./dashboard.html"> Dashboard </a></li>
-                <li> <a href="./addArticle.html"> Add Article </a></li>
-                <li><a href="./viewArticle.html"> View Article</a></li>
-               </ul>
-            </div>
-         
+  <div class="page-container">
+    <div class="sidebar">
+      <div class="logod">
+        <!-- <p>logo</p> -->
+      </div>
+      <div class="nav-menu">
+        <ul>
+          <li><a href="./dashboard.html"> Dashboard </a></li>
+          <li> <a href="./addArticle.html"> Add Article </a></li>
+          <li><a href="./viewArticle.html"> View Article</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="main">
+      <div class="dashboard-menu">
+        <div class="dashboard-m-menu">
+          <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;" alt=""
+            srcset="">
+          <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn" alt="" srcset="">
+          <div class="nav-menu" id="myLink2">
+            <a href="./dashboard.html"> Dashboard </a>
+            <a href="./addArticle.html"> Add Article </a>
+            <a href="./viewArticle.html"> View Article</a>
+          </div>
         </div>
-        <div class="main">
-            <div class="dashboard-menu">
-                <div class="dashboard-m-menu">
-                    <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;" alt="" srcset="">
-                    <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn"  alt="" srcset="">
-                    <div class="nav-menu" id="myLink2" >
-                        <a href="./dashboard.html"> Dashboard </a>
-                         <a href="./addArticle.html"> Add Article </a>
-                         <a href="./viewArticle.html"> View Article</a>
-                     </div>
-                </div>
-                <div>
-                    <p>Settings</p>
-                    <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
-                    <div id="myLink" class="logout">
-                        <a href="" id="logoutBtn">Logout</a>
-                    </div>
-                </div>
-               
+        <div>
+          <p>Settings</p>
+          <img onclick="toggle()" src="./resources/Expand more.svg" alt="" srcset="">
+          <div id="myLink" class="logout">
+            <a href="" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="dashboard-content">
+        <div class="dashboard-content-title">
+          <h3>Add Article</h3>
+          <hr>
+        </div>
+
+        <div class="form-article">
+          <form action="" id="AddArticleForm" name="articleForm" enctype="multipart/form-data"
+            onsubmit="return(validateArticle())">
+            <div>
+              <h4>Title</h4>
+              <p class="error" id="title-error"></p>
+
+              <input type="text" id="title" name="title" placeholder="  Article Title" />
             </div>
+            <div id="changebtn">
+              <br>
+
+              <!-- <a class="btn-primary" id="change_btn" onclick="showFile()">Change Image</a> -->
+
+              <br>
+              <br>
+            </div>
+
+            <img id="img" style="width: 100%;" src="data:image/png;base64,${element.image}" alt="" />
+            <div id="cover">
+
+
+              <h4>Image</h4>
+              <p class="error" id="image-error"></p>
+              <input type="file" id="file" name="image" />
+
+
+            </div>
+<<<<<<< HEAD
             <div class="dashboard-content">
                 <div class="dashboard-content-title">
                     <h3>Add Article</h3>
@@ -87,82 +125,79 @@
                       </form>
                    </div>
             </div>
+=======
+            <div>
+              <h4>Body</h4>
+              <p class="error" id="body-error"></p>
+
+              <textarea type="text" placeholder="body Title" rows="5" id="body" name="body" required></textarea>
+            </div>
+            <br>
+            <input type="submit" class="btn-primary" value="CREATE" id="submitBtn" />
+          </form>
+>>>>>>> 306cd797b5e6de9c26da44aac71189a80ee29c73
         </div>
-   </div>
+
+      </div>
+
+
+    </div>
+  </div>
   <script src="./resources/assets/ckeditor/ckeditor.js"></script>
   <script>
-  CKEDITOR.replace("body");
-  const image_error=document.getElementById('image-error')
-const showFile = (e) =>{
-  console.log("hey")
-  const imgPrevier = document.getElementById("img")
-  const change_btn = document.getElementById("change_btn")
-  
-  if(imgPrevier.style.display=="block"){
-    change_btn.innerHTML="Cancel Change Image"
-    imgPrevier.style.display="none"
-      document.getElementById("cover").style.display = "block";
-  }else{
-    change_btn.innerHTML="Change Image"
-    
-    imgPrevier.style.display="block"
-      document.getElementById("cover").style.display = "none";
-  }
-
-
-}
-  const validateArticle = e =>{
-    const title=document.getElementById('title-error')
-  const password_error=document.getElementById('password-error')
-  
-  if( document.articleForm.title.value == "" ) {
-  
-
-    title.innerHTML="title is required"
-    image_error.innerHTML=""
-    document.articleForm.title.focus() ;
-    return false;
- }
-  if( document.articleForm.image.value == "") {
-  
-    image_error.innerHTML="Image is required"
-    title.innerHTML=""
-    document.articleForm.image.focus() ;
-    return false;
- }
-  return true;
-}
-
-if (localStorage.getItem("updateId")) {
-      let id = localStorage.getItem("updateId");
+    CKEDITOR.replace("body");
+    const image_error = document.getElementById('image-error')
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
+    const showFile = (e) => {
+      console.log("hey")
       const imgPrevier = document.getElementById("img")
+      const change_btn = document.getElementById("change_btn")
+
+      if (imgPrevier.style.display == "block") {
+        change_btn.innerHTML = "Cancel Change Image"
+        imgPrevier.style.display = "none"
+        document.getElementById("cover").style.display = "block";
+      } else {
+        change_btn.innerHTML = "Change Image"
+
+        imgPrevier.style.display = "block"
+        document.getElementById("cover").style.display = "none";
+      }
+
+
+    }
+    const validateArticle = e => {
+      const title = document.getElementById('title-error')
+      const password_error = document.getElementById('password-error')
+
+      if (document.articleForm.title.value == "") {
+
+
+        title.innerHTML = "title is required"
+        image_error.innerHTML = ""
+        document.articleForm.title.focus();
+        return false;
+      }
+      if (document.articleForm.image.value == "") {
+
+        image_error.innerHTML = "Image is required"
+        title.innerHTML = ""
+        document.articleForm.image.focus();
+        return false;
+      }
+      return true;
+    }
+
+    if (localStorage.getItem("updateArticle")) {
+      let article = JSON.parse(localStorage.getItem("updateArticle"));
+
       document.getElementById("cover").style.display = "none";
       document.getElementById("submitBtn").value = "UPDATE";
 
-      var articles = JSON.parse(localStorage.getItem("articles"));
-      var articleToUpdate = articles.filter((item) => item.id == id);
-      articles = articles.filter((item) => item.id != id);
-      imgPrevier.src = `data:image/jpg;base64,${articleToUpdate[0].image}`;
-      var image=articleToUpdate[0].image;
-      if(document.getElementById("cover").style.display=="none"){
-      
-      document.getElementById("file").addEventListener("change", (e) => {
-        const imgPrevier = document.getElementById("img")
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const base64String = reader.result
-            .replace("data:", "")
-            .replace(/^.+,/, "");
-          image = base64String;
-          // console.log(image)
-          imgPrevier.src = `data:image/png;base64,${base64String}`;
-        };
-        reader.readAsDataURL(file);
-      });
-      }
-      document.getElementById("title").value = articleToUpdate[0].title;
-      document.getElementById("body").value = articleToUpdate[0].body;
+
+
+      document.getElementById("title").value = article.title;
+      document.getElementById("body").value = article.content;
 
       document
         .getElementById("AddArticleForm")
@@ -170,26 +205,33 @@ if (localStorage.getItem("updateId")) {
           event.preventDefault();
 
           const title = document.getElementById("title").value;
-          const body = CKEDITOR.instances.body.getData();
-    
-          const Article = {
-            id,
-            title,
-            body,
-            image: image,
-            comments: articleToUpdate[0].comments,
-            likes: articleToUpdate[0].likes,
-            postedDate: articleToUpdate[0].postedDate,
+          const content = CKEDITOR.instances.body.getData();
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", `Bearer ${user.token}`);
+          myHeaders.append("Content-Type", "application/json");
+
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content
+          });
+
+          var requestOptions = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
           };
 
-          articles.push(Article);
-          localStorage.setItem("articles", JSON.stringify(articles));
-          localStorage.removeItem("updateId")
-          window.open("./viewArticle.html", "self");
+          fetch(`https://mybrandapi.up.railway.app/api/articles/${article.id}/update`, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+
         });
     } else {
-      document.getElementById("changebtn").style.display="none"
-document.getElementById("file").required = "";
+      document.getElementById("changebtn").style.display = "none"
+      document.getElementById("file").required = "";
       var image;
       document.getElementById("file").addEventListener("change", (e) => {
         const imgPrevier = document.getElementById("img")
@@ -200,7 +242,7 @@ document.getElementById("file").required = "";
             .replace("data:", "")
             .replace(/^.+,/, "");
           image = base64String;
-          // console.log(image)
+
           imgPrevier.src = `data:image/png;base64,${base64String}`;
         };
         reader.readAsDataURL(file);
@@ -214,49 +256,56 @@ document.getElementById("file").required = "";
           event.preventDefault();
           const title = document.getElementById("title").value;
           const body = CKEDITOR.instances.body.getData();
-          // const tag = document.getElementById("tag").value;
+          const image = document.getElementById("file");
+          var myHeaders = new Headers();
 
-          var today = new Date();
-          var dd = String(today.getDate()).padStart(2, "0");
-          var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-          var yyyy = today.getFullYear();
+          myHeaders.append("Authorization", `Bearer ${user.token}`);
 
-          today = dd + "/" + mm + "/" + yyyy;
+          var formdata = new FormData();
+          formdata.append("title", title);
+          formdata.append("content", body);
+          formdata.append('photo',image.files[0])
 
-          const postedDate = today;
-          const Article = {
-            id: Math.floor(Math.random() * 1000000),
-            title,
-            body,
-            image: image,
-            comments: [],
-            likes: [],
-            postedDate,
+         
+
+
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+
+            body: formdata,
+
+            redirect: 'follow'
           };
-          var articles = JSON.parse(localStorage.getItem("articles") || "[]");
-          // Put the object into storage
-          articles.push(Article);
-          localStorage.setItem("articles", JSON.stringify(articles));
-            image_error.innerHTML="success"
-          window.open("./viewArticle.html", "self");
+
+          fetch("https://mybrandapi.up.railway.app/api/articles/add", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+
+              location.href = '../viewArticle.html'
+
+            })
+            .catch(error => console.log('error', error));;
+
         });
+    }
+    const isAdminLogedIn = () => {
+      const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+      if (loginedUser.role != "admin" || !loginedUser) {
+        location.href = '../login.html'
       }
-      const isAdminLogedIn=()=>{
-  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
-  if (loginedUser.role != "admin" || !loginedUser) {
-    location.href='../login.html'
-  }
-}
-isAdminLogedIn()
+    }
+    isAdminLogedIn()
 
-const logout = () => {
-  localStorage.removeItem("loginedUser");
-  location.href='../index.html'
-};
+    const logout = () => {
+      localStorage.removeItem("loginedUser");
+      location.href = '../index.html'
+    };
 
-document.getElementById("logoutBtn").addEventListener('click',logout)
+    document.getElementById("logoutBtn").addEventListener('click', logout)
   </script>
-   <script src="./javascript.js"></script>
+  <script src="./javascript.js"></script>
 
 </body>
+
 </html>

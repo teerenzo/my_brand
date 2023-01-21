@@ -198,31 +198,37 @@ if(document.contactForm.message.value != ""){
   subject.innerHTML=""
   sms.innerHTML=""
   const messageList = JSON.parse(localStorage.getItem('messages')) || [];
-  
-    
-  var today = new Date();
-  var day = String(today.getDate()).padStart(2, "0");
-  var month = String(today.getMonth() + 1).padStart(2, "0"); 
-  var year = today.getFullYear();
-  postedDate = day + "/" + month + "/" + year;
-  
-  var contact = {
-  'id':Math.floor(Math.random()*10000),
-  "email":document.contactForm.email.value,
-  "subject":document.contactForm.subject.value,
-  "message":document.contactForm.message.value,
-  "pdate":postedDate
-  }
-  
-  
-  messageList.push(contact);
-  
-  console.log(messageList)
-  
-  localStorage.setItem("messages",JSON.stringify(messageList))
-  document.getElementById('contactForm').reset()
-  internet_error.style.color="blue"
-  internet_error.innerHTML="Your Comment Received, we will Contact you soon"
+
+
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "name": document.contactForm.subject.value,
+    "email": document.contactForm.email.value,
+    "message": document.contactForm.message.value
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch("https://mybrandapi.up.railway.app/api/message/sendMessage/", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      console.log(result)
+      document.getElementById('contactForm').reset()
+      internet_error.style.color="blue"
+      internet_error.innerHTML="Your Comment Received, we will Contact you soon"
+    })
+    .catch(error => console.log('error', error));
+
+
+
   return false
 
 }

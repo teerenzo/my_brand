@@ -89,6 +89,7 @@
    <script>
      const reference = document.getElementById("comment-view") 
      const messageNumber = document.getElementById("messageNumber")
+    const user = JSON.parse(localStorage.getItem('loginedUser'))
      
     function getComment(){
   const messageList = JSON.parse(localStorage.getItem('messages')) || []
@@ -99,36 +100,58 @@
   document.getElementById("usersLength").innerHTML=usersList.length+" Users(s)"
 
   var data=``;
-if(messageList.length<=0){
-  data+=`<h1>Empty List</h1>`
-}else{
-  
+  var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
 
-  for (let index = 0; index < messageList.length; index++) {
-     
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch("https://mybrandapi.up.railway.app/api/message/", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          const messages = result.messages || []
+
+          messages.forEach(element => {
     data+=`<div class="dashboard-message" >
-        <h3>${messageList[index]['email']}</h3>
-        <h4 style="color:blue">${messageList[index]['subject']}</h4>
-        <p>${messageList[index]['message']}</p>
+        <h3>${element.name}</h3>
+        <h4 style="color:blue">${element.email}</h4>
+        <p>${element['message']}</p>
 
         <div class="btn-sms">
-            <a href='mailto:${messageList[index]['email']}' target='blank'> <button class="btn-reply">Reply</button></a>
-            <button onclick="deleteMessage(${messageList[index]['id']})" class="btn-delete">Delete</button>
+            <a href='mailto:${element['email']}' target='blank'> <button class="btn-reply">Reply</button></a>
+            <button onclick="deleteMessage('${element._id}')" class="btn-delete">Delete</button>
         </div>
      </div>`
        
-  }
-    }
-  reference.innerHTML = data;
+    });
+    reference.innerHTML = data;
+        })
+        .catch(error => console.log('error', error));
+    
+
 
 }
 getComment()
 const deleteMessage = id => {
-      const messages = JSON.parse(localStorage.getItem('messages')) || []
-      const newMessages = messages.filter(item => item.id != id);
-      localStorage.setItem('messages', JSON.stringify(newMessages));
-      location.href = './dashboard.html'
-      getMessage();
+  var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${user.token}`);
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch(`https://mybrandapi.up.railway.app/api/message/${id}/delete`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          getComment();
+        })
+        .catch(error => console.log('error', error));
     }
     const isAdminLogedIn=()=>{
   const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];

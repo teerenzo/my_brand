@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,36 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-   <div class="page-container">
+    <div class="page-container">
         <div class="sidebar">
             <div class="logod">
                 <!-- <p>logo</p> -->
-               </div>
-            <div class="nav-menu">
-               <ul>
-                <li><a href="./dashboard.html"> Dashboard </a></li>
-                <li> <a href="./addArticle.html"> Add Article </a></li>
-                <li><a href="./viewArticle.html"> View Article</a></li>
-               </ul>
             </div>
-         
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="./dashboard.html"> Dashboard </a></li>
+                    <li> <a href="./addArticle.html"> Add Article </a></li>
+                    <li><a href="./viewArticle.html"> View Article</a></li>
+                </ul>
+            </div>
+
         </div>
         <div class="main">
             <div class="dashboard-menu">
                 <div class="dashboard-m-menu">
-                    <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;" alt="" srcset="">
-                    <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn"  alt="" srcset="">
-                    <div class="nav-menu" id="myLink2" >
+                    <img src="./resources/Close.svg" onclick="toggleDashboard()" id="close-btn" style="display: none;"
+                        alt="" srcset="">
+                    <img src="./resources/Menu.svg" onclick="toggleDashboard()" id="menu-btn" alt="" srcset="">
+                    <div class="nav-menu" id="myLink2">
                         <a href="./dashboard.html"> Dashboard </a>
-                         <a href="./addArticle.html"> Add Article </a>
-                         <a href="./viewArticle.html"> View Article</a>
-                     </div>
+                        <a href="./addArticle.html"> Add Article </a>
+                        <a href="./viewArticle.html"> View Article</a>
+                    </div>
                 </div>
                 <div>
                     <p>Settings</p>
@@ -43,16 +46,16 @@
                         <a href="" id="logoutBtn">Logout</a>
                     </div>
                 </div>
-               
+
             </div>
-           
+
             <div class="dashboard-content">
                 <div class="dashboard-content-title">
                     <h3>View Articles</h3>
                     <hr>
                 </div>
                 <div class="view-articles" id="articles">
-                     
+
                     <div class="article-card">
                         <div class="title-article">
                             <p>Hello this is just title</p>
@@ -87,66 +90,100 @@
                 </div>
 
             </div>
-            
-          
+
+
         </div>
-   </div>
-  <script src="./resources/assets/ckeditor/ckeditor.js"></script>
-  <script src="./javascript.js"></script>
-  <script>
-  CKEDITOR.replace("body");
-  let articles;
-    const getArticleOnDashbaord = () => {
-      articles = JSON.parse(localStorage.getItem("articles"));
-      let dataToDisplay = '';
-      articles.forEach(element => {
-        dataToDisplay += `  <a href="./viewComment.html" onclick="readComments('${element.id}')">    <div class="article-card">
+    </div>
+    <script src="./resources/assets/ckeditor/ckeditor.js"></script>
+    <script src="./javascript.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('loginedUser'))
+        let articles;
+        const getArticleOnDashbaord = () => {
+            articles = JSON.parse(localStorage.getItem("articles"));
+            let dataToDisplay = '';
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+
+            fetch("https://mybrandapi.up.railway.app/api/articles/", requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                    articles = result
+                    let dataToDisplay = '';
+                    articles.forEach(element => {
+                        var content = `${element['content']}`;
+
+                        console.log(`${element['content']}`);
+
+                        dataToDisplay += ` <div class="article-card">
                         <div class="title-article">
-                            <img id="img" src="data:image/png;base64,${element.image}" alt="" />
+                            <img id="img" src="${element.imageUrl}" alt="" />
                          <div class="subtitle">
                             <h3>${element['title']}</h3>
-                            <p>${element['body']}</p>
+                            <p>${element['content']}</p>
                             </div>
                         </div>
                         <div class="action">
                             <!-- <img src="./resources/Remove red eye.svg" alt=""> -->
-                            <img src="./resources/Mode edit.svg" onclick="update(${element['id']})" alt="">
-                            <img onclick="deleteArticle(${element['id']})" src="./resources/Delete.svg" alt="" srcset="">
+                            <img src="./resources/Mode edit.svg" onclick="update('${element._id}','${element.title}','${content}')">
+                            <img onclick="deleteArticle('${element._id}')" src="./resources/Delete.svg" alt="" srcset="">
                         </div>
-                    </div></a>`;
-      });
-      document.getElementById('articles').innerHTML = dataToDisplay;
-    }
-    getArticleOnDashbaord()
-    const update = id => {
-      localStorage.setItem('updateId', id);
-      location.href = './addArticle.html'
-    }
-    
-    const deleteArticle = id => {
-      console.log(id)
-      articles = articles.filter((item) => item.id != id);
-      localStorage.setItem('articles', JSON.stringify(articles));
-      getArticleOnDashbaord()
-    }
+                    </div>`;
+                    });
+                    document.getElementById('articles').innerHTML = dataToDisplay;
+                })
+                .catch(error => console.log('error', error));
 
-    const isAdminLogedIn=()=>{
-  const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
-  if (loginedUser.role != "admin" || !loginedUser) {
-    location.href='../login.html'
-  }
-}
-isAdminLogedIn()
+        }
+        getArticleOnDashbaord()
+        const update = (id, title, content) => {
+            const article = {
+                id, title, content
+            }
+            localStorage.setItem("updateArticle", JSON.stringify(article));
+            location.href = './addArticle.html'
+        }
 
-const logout = () => {
-  localStorage.removeItem("loginedUser");
-  location.href='../index.html'
-};
+        const deleteArticle = id => {
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${user.token}`);
 
-document.getElementById("logoutBtn").addEventListener('click',logout)
-const readComments = article => {
-      localStorage.setItem('commentToRead', article);
-    }
-  </script>
+            var requestOptions = {
+                method: 'DELETE',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            fetch(`https://mybrandapi.up.railway.app/api/articles/${id}`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                    getArticleOnDashbaord()
+                })
+                .catch(error => console.log('error', error));
+        }
+
+        const isAdminLogedIn = () => {
+            const loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || [];
+            if (loginedUser.role != "admin" || !loginedUser) {
+                location.href = '../login.html'
+            }
+        }
+        isAdminLogedIn()
+
+        const logout = () => {
+            localStorage.removeItem("loginedUser");
+            location.href = '../index.html'
+        };
+
+        document.getElementById("logoutBtn").addEventListener('click', logout)
+        const readComments = article => {
+            localStorage.setItem('commentToRead', article);
+        }
+    </script>
 </body>
+
 </html>
