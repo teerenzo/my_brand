@@ -82,6 +82,50 @@
 
 
             </div>
+<<<<<<< HEAD
+            <div class="dashboard-content">
+                <div class="dashboard-content-title">
+                    <h3>Add Article</h3>
+                    <hr>
+                </div>
+                
+                   <div class="form-article">
+                    <form action="" id="AddArticleForm" name="articleForm" onsubmit="return(validateArticle())">
+                        <div>
+                          <h4>Title</h4>
+                <p class="error" id="title-error"></p>
+
+                          <input type="text" id="title" name="title" placeholder="  Article Title"  />
+                        </div>
+                        <div id="changebtn">
+                          <br>
+                          <a class="btn-primary" id="change_btn" onclick="showFile()">Change Image</a>
+                          <br>
+                          <br>
+                        </div>
+                      
+                        <img id="img" style="width: 100%;" src="data:image/png;base64,${element.image}" alt="" />
+                        <div id="cover">
+          
+
+                          <h4>Image</h4>
+                          <p class="error" id="image-error"></p>
+                          <input type="file" id="file" name="image" />
+                          
+                       
+                        </div>
+                        <div>
+                          <h4>Body</h4>
+                <p class="error" id="body-error"></p>
+
+                          <textarea type="text" placeholder="body Title" rows="5" id="body" name="body" required></textarea>
+                        </div>
+                      <br>
+                        <input type="submit" class="btn-primary" value="CREATE" id="submitBtn" />
+                      </form>
+                   </div>
+            </div>
+=======
             <div>
               <h4>Body</h4>
               <p class="error" id="body-error"></p>
@@ -91,6 +135,7 @@
             <br>
             <input type="submit" class="btn-primary" value="CREATE" id="submitBtn" />
           </form>
+>>>>>>> 306cd797b5e6de9c26da44aac71189a80ee29c73
         </div>
 
       </div>
