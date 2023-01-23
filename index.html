@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emmanuel Renzaho</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js" integrity="sha512-8clKd0Zb9EeWqWE0gzlNxwWIjzYlYZ9cAsGcGM7gPsE+SKUxY6zZmLhrWqHMYQqbNCSwy21bn/TtA4zTQ+edag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/8.0.5/react-redux.js" integrity="sha512-1VGFfdp+gU7Gc8QOs1eGcN9asLGDKTTMK66tJ47SiEHjwZjESyDo9UD8HpSf/Ynfw3RxXcsK5leJhrTueu8MGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -402,37 +407,11 @@
                 <div class="line"></div>
             </div>
                 
-            <div class="post-container" id="post-container">
-             <div class="post">
-                <a href="./viewBlog.html">
-                    <img src="./resources/1 (2) 1.png" alt="" srcset="">
-                    <h2>The Truth About Design In 3 Minutes</h2>
-                    <div class="post-footer">
-                        <p>13 March, 2019</p>
-                        <div class="iconPost"></div>
-                        <h4>Renzo</h4>
-                    </div>
-                </a> 
-                </div>
+            <div id="post-container1">
+       
           
-                <div class="post">
-                    <img src="./resources/1 (2) 1.png" alt="" srcset="">
-                    <h2>The Truth About Design In 3 Minutes</h2>
-                    <div class="post-footer">
-                        <p>13 March, 2019</p>
-                        <div class="iconPost"></div>
-                        <h4>Renzo</h4>
-                    </div>
-                </div>
-                <div class="post">
-                    <img src="./resources/1 (2) 1.png" alt="" srcset="">
-                    <h2>The Truth About Design In 3 Minutes</h2>
-                    <div class="post-footer">
-                        <p>13 March, 2019</p>
-                        <div class="iconPost"></div>
-                        <h4>Renzo</h4>
-                    </div>
-                </div>
+           
+          
             </div>
 
         </div>
@@ -483,6 +462,7 @@
 
     </div>
 
+<script src="./blogs.js" type="text/babel"></script>
 <script src="./javascript.js"></script>
 <script>
      const getArticleOnIndex = () => {
@@ -518,7 +498,7 @@
     }).catch(error => console.log('error', error));
      
     }
-    getArticleOnIndex()
+    // getArticleOnIndex()
     const readMore = article => {
       localStorage.setItem('articleToRead', article);
     }
