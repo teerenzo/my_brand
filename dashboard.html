@@ -109,7 +109,7 @@
         redirect: 'follow'
       };
 
-      fetch("https://mybrandapi.up.railway.app/api/message/", requestOptions)
+      fetch("https://mybrand-mxi2.onrender.com/api/message/", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result)
@@ -146,7 +146,7 @@ const deleteMessage = id => {
         redirect: 'follow'
       };
 
-      fetch(`https://mybrandapi.up.railway.app/api/message/${id}/delete`, requestOptions)
+      fetch(`https://mybrand-mxi2.onrender.com/api/message/${id}/delete`, requestOptions)
         .then(response => response.json())
         .then(result => {
           getComment();

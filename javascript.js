@@ -217,7 +217,7 @@ if(document.contactForm.message.value != ""){
     redirect: 'follow'
   };
 
-  fetch("https://mybrandapi.up.railway.app/api/message/sendMessage/", requestOptions)
+  fetch("https://mybrand-mxi2.onrender.com/api/message/sendMessage/", requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result)

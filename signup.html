@@ -115,7 +115,7 @@ if(document.signupForm.password.value == document.signupForm.cpassword.value ){
         redirect: 'follow'
       };
 
-      fetch("https://mybrandapi.up.railway.app/api/account/signUp", requestOptions)
+      fetch("https://mybrand-mxi2.onrender.com/api/account/signUp", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log(result)
