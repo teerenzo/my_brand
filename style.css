@@ -169,6 +169,11 @@ width: 80%;
     width: 70%;
     padding: 10px;
 }
+p{
+    font-size: 18px;
+    /* width: 70%; */
+    padding: 10px;  
+}
 .landing-btn{
     display: flex;
     justify-content: space-around;
@@ -549,7 +554,8 @@ flex-wrap: wrap;
 }
 .contact-content .contact-info .tel{
 display: flex;
-justify-content: space-around;
+justify-content: start;
+gap: 10px;
 }
 .contact-content .contact-info .tel img {
     width: 25px;
@@ -557,7 +563,8 @@ justify-content: space-around;
 }
 .contact-content .contact-info .email{
     display: flex;
-   justify-content: space-around;
+   justify-content: start;
+   gap: 10px;
 
  }
 .contact-content .contact-info .email img{
@@ -566,7 +573,8 @@ justify-content: space-around;
 }
 .contact-content .contact-info .location{
         display: flex;
-justify-content: space-around;
+justify-content: start;
+gap: 10px;
 
  }
  .contact-content .contact-info .location img{
@@ -577,13 +585,14 @@ justify-content: space-around;
 .contact-content .contact-form form{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    /* gap: 5px; */
 }
 input[type=text]{
     border: 1px solid #FF5959;
     border-radius: 6px;
     padding: 10px 22px;
     width: 100%;
+    margin-top: 10px;
 }
 input[type=password]{
     border: 1px solid #FF5959;
