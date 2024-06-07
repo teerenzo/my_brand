@@ -528,7 +528,7 @@ flex-wrap: wrap;
 }
 
 .contact{
-    height: 90vh;
+    height: auto;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
@@ -1178,5 +1178,16 @@ padding: 7px;
 
 .error{
  color:red
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4A63E7;
+    color: white;
+    height: 10vh;
+    width: 100%;
+    margin-top: 20px;
 }
 
