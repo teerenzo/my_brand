@@ -176,7 +176,7 @@ p{
 }
 .landing-btn{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
     width: 30%;
 }
@@ -875,9 +875,10 @@ padding: 7px;
     }
     .landing-btn{
         height: 14vh;
-        width: 50%;
-        flex-direction: column;
-        justify-content:space-around;
+        width: 100%;
+        flex-direction: row;
+        justify-content:center;
+        justify-items: center;
     }
     .Portfolio .btn-protofolio{
         width: 90%;
@@ -928,6 +929,7 @@ padding: 7px;
     margin-top: 80px;
     min-height: auto;
     height: auto;
+    justify-items: center;
 }
 .container{
     padding-top: 0px;
