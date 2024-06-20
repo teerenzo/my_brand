@@ -49,7 +49,7 @@ box-sizing: border-box;
 }
 
 .nav{
-background-color: #4A63E7;
+background-color: #343539;
 padding: 25px;
 border-radius: 6px;
 position: fixed;
@@ -100,7 +100,7 @@ width: 80%;
     /* margin-bottom: 300px;
     padding: 50px; */
     display: none;
-    background-color: #4A63E7 ;
+    background-color: #343539 ;
     border-radius: 12px;
     transition: all;
     /* justify-content:space-between; */
@@ -151,7 +151,7 @@ width: 80%;
     display: flex;
     justify-content:center;
     flex-direction: column;
-    background-color: #4A63E7 ;
+    background-color: #343539 ;
     background-size: cover;
     min-height: 95vh;
     opacity: .8;
@@ -248,7 +248,7 @@ border-radius: 5px;
 .btn-hire{
     padding: 13px 30px;
     border: none;
-    background-color: #4A63E7;
+    background-color: #343539;
     font-size: 16px;
     color: white;
     font-weight: bold;
@@ -360,8 +360,8 @@ border-radius: 5px;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 10px;
-    background-color: #4A63E7;
-    box-shadow: 2px 2px 2px 2px #4A63E7;
+    background-color: #343539;
+    box-shadow: 2px 2px 2px 2px #343539;
 }
 .project{
     text-align: center;
@@ -402,8 +402,9 @@ border-radius: 5px;
 }
 .img-phone{
     /* width: 50%; */
-    height: 200px;
+    height: 300px;
     /* padding: 20px; */
+      object-fit:contain;
 
 }
 
@@ -616,7 +617,7 @@ textarea{
     padding: 8px 22px;
 }
 .btn-contact{
-    background-color:#4A63E7;
+    background-color:#343539;
     border: none;
     color: white;
     margin-top: 6px;
@@ -642,7 +643,7 @@ textarea{
     right: 0;
     width: 100%;
     height: 13vh;
-    background-color: #4A63E7;
+    background-color: #343539;
 }
 .header-title h3{
     color: white;
@@ -765,7 +766,7 @@ display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #4A63E7;
+    background-color: #343539;
 }
 .login-title{
     padding: 10px;
@@ -818,7 +819,7 @@ display: flex;
 .btn-second{
     padding: 6px 35px;
     border: none;
-    background-color: #4A63E7;
+    background-color: #343539;
     font-size: 16px;
     color: white;
     font-weight: bold;
@@ -980,7 +981,7 @@ padding: 7px;
     width: 100%;
 }
 .sidebar{
-    background-color: #4A63E7;
+    background-color: #343539;
     border-right: 1px solid white;
     width: 20%;
     text-align: center;
@@ -1028,7 +1029,7 @@ padding: 7px;
     align-items: center;
     padding: 10px;
     width: 100%;
-    background-color: #4A63E7;
+    background-color: #343539;
 }
 .main .dashboard-menu p{
     color: white;
@@ -1083,7 +1084,7 @@ padding: 7px;
 
 .dashboard-message .btn-sms .btn-reply{
     color: white;
-    background-color: #4A63E7;
+    background-color: #343539;
     border: none;
     padding: 5px 24px;
     border-radius: 5px;
@@ -1099,7 +1100,7 @@ padding: 7px;
 
 /* add article */
 .form-article{
-    /* background-color: #4A63E7; */
+    /* background-color: #343539; */
     display: flex;
     justify-content: center;
 
@@ -1109,7 +1110,7 @@ padding: 7px;
 }
 .form-article form {
     width: 60%;
-    border: 1px solid #4A63E7;
+    border: 1px solid #343539;
     border-radius: 8px;
     box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
 
@@ -1146,7 +1147,7 @@ padding: 7px;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   border: 1px solid #4A63E7;
+   border: 1px solid #343539;
    border-radius: 4px;
    box-shadow: 1px 1px 2px 2px rgb(201, 198, 198);
    margin-top: 10px;
@@ -1203,7 +1204,7 @@ padding: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4A63E7;
+    background-color: #343539;
     color: white;
     height: 10vh;
     width: 100%;
