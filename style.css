@@ -2,6 +2,9 @@
 padding: 0;
 margin: 0;
 box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
 }
 .active{
     height: 30px;
@@ -372,19 +375,33 @@ border-radius: 5px;
 }
 
 .project h3{
+    color: rgb(255, 101, 101);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.project h2{
     color: white;
     font-size: 20px;
     font-weight: bold;
 }
+
 .customer{
     text-align: center;
 }
+
+.customer h2{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .customer img{
     width: 50px;
     height: 50px;
 }
 .customer h3{
-    color: white;
+    color: rgb(255, 101, 101);
     font-size: 20px;
     font-weight: bold;
 }
@@ -517,6 +534,7 @@ flex-wrap: wrap;
     border-radius: 5px;
 }
 .post-container .post h2{
+    color: #FF5959;
     text-align: center;
     font-size: 19px;
     font-weight: bold;
