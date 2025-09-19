@@ -11,22 +11,48 @@ branding.classList.add('btn')
 
 changeContent = (val) =>{
  if(val==branding){
-    // all_content.style.display="none"
-    web_content.style.display="flex"
-mobile_content.style.display="none"
-    // all_project.classList.remove('btn')
-    // all_project.classList.add('btn-regular')
+    // Fade out current content
+    if(mobile_content.style.display === "flex") {
+        mobile_content.style.opacity = "0";
+        setTimeout(() => {
+            mobile_content.style.display = "none";
+            // Fade in web content
+            web_content.style.display = "flex";
+            web_content.style.opacity = "0";
+            setTimeout(() => {
+                web_content.style.opacity = "1";
+            }, 50);
+        }, 300);
+    } else {
+        web_content.style.display = "flex";
+        web_content.style.opacity = "1";
+    }
+    
+    // Update button states
     branding.classList.add('btn')
     creativite.classList.remove('btn')
     branding.classList.remove('btn-regular')
     creativite.classList.add('btn-regular')
 
   }else{
-    // all_content.style.display="none"
-    web_content.style.display="none"
-mobile_content.style.display="flex"
-    // all_project.classList.remove('btn')
-    // all_project.classList.add('btn-regular')
+    // Fade out current content
+    if(web_content.style.display === "flex") {
+        web_content.style.opacity = "0";
+        setTimeout(() => {
+            web_content.style.display = "none";
+            // Fade in mobile content
+            mobile_content.style.display = "flex";
+            mobile_content.style.opacity = "0";
+            setTimeout(() => {
+                mobile_content.style.opacity = "1";
+            }, 50);
+        }, 300);
+    } else {
+        mobile_content.style.display = "flex";
+        mobile_content.style.opacity = "1";
+    }
+    
+    // Update button states
     branding.classList.remove('btn')
     creativite.classList.add('btn')
     branding.classList.add('btn-regular')
