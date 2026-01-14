@@ -5,7 +5,7 @@ var all_content = document.getElementById("all-content");
 var web_content = document.getElementById("web-content");
 var mobile_content = document.getElementById("mobile-content");
 
-// web_content.style.display="none"
+web_content.style.display="flex"
 mobile_content.style.display="none"
 branding.classList.add('btn')
 

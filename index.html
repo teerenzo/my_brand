@@ -134,7 +134,7 @@
             <div class="landing-content">
                 <h3>SENIOR SOFTWARE ENGINEER</h3>
                 <h2>EMMANUEL RENZAHO</h2>
-                <p>Highly skilled and motivated Fullstack Mobile/Web Engineer with over 6 years of experience in designing, developing, and deploying innovative web and mobile applications. Adept at leveraging deep understanding of both front-end and back-end technologies to create seamless, user-friendly, and performant solutions.</p>
+                <p>Highly skilled and motivated Fullstack Mobile/Web Engineer with over <span id="experience-years-1">6</span> years of experience in designing, developing, and deploying innovative web and mobile applications. Adept at leveraging deep understanding of both front-end and back-end technologies to create seamless, user-friendly, and performant solutions.</p>
                 
                 <div class="expertise-tags">
                     <span class="tag">Full-Stack Development</span>
@@ -163,7 +163,7 @@
                 <div class="about-me">
                     <h3>Senior Software Engineer & Technical Leader</h3>
                     <p> 
-                        As a Senior Software Engineer with 6+ years of experience, I specialize in designing, developing, and deploying innovative web and mobile applications. My expertise spans full-stack development, mobile development with Flutter, and team leadership across various technology stacks.
+                        As a Senior Software Engineer with <span id="experience-years-2">6+</span> years of experience, I specialize in designing, developing, and deploying innovative web and mobile applications. My expertise spans full-stack development, mobile development with Flutter, and team leadership across various technology stacks.
                     </p>
                     <p>
                         I have successfully led cross-functional teams, mentored over 300 students in software development, and delivered high-quality applications for companies like Codeit Rwanda, Ikanisa Ltd, and HuzaLabs. My technical leadership has resulted in improved project delivery timelines and enhanced team productivity.
@@ -186,7 +186,7 @@
             </div>
             
             <div class="skills-intro">
-                <p>With 6+ years of hands-on experience, I've mastered a comprehensive range of technologies and frameworks. Here's a breakdown of my core competencies across different domains.</p>
+                <p>With <span id="experience-years-3">6+</span> years of hands-on experience, I've mastered a comprehensive range of technologies and frameworks. Here's a breakdown of my core competencies across different domains.</p>
             </div>
 
             <div class="skills-container">
@@ -717,7 +717,7 @@
             </div>
             
             <div class="articles-intro">
-                <p>Sharing insights on full-stack development, mobile applications, and software engineering best practices from my 6+ years of experience across various companies and technologies.</p>
+                <p>Sharing insights on full-stack development, mobile applications, and software engineering best practices from my <span id="experience-years-4">6+</span> years of experience across various companies and technologies.</p>
             </div>
                 
             <div class="post-container" id="post-container">
@@ -783,27 +783,31 @@
                         </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <img src="./resources/Group 1.svg" alt="LinkedIn" srcset="">
+                    <a href="https://www.linkedin.com/in/renzaho-emmanuel-9963b3218/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <img src="./resources/linkedin.svg" alt="LinkedIn" srcset="">
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p>renzaho-emmanuel-9963b3218</p>
+                                <span>Professional network</span>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <p>renzaho-emmanuel-9963b3218</p>
-                            <span>Professional network</span>
-                        </div>
-                    </div>
+                    </a>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <img src="./resources/Group 2.svg" alt="GitHub" srcset="">
+                    <a href="https://github.com/teerenzo" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <img src="./resources/github.svg" alt="GitHub" srcset="">
+                            </div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <p>teerenzo</p>
+                                <span>Code repositories</span>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>GitHub</h4>
-                            <p>teerenzo</p>
-                            <span>Code repositories</span>
-                        </div>
-                    </div>
+                    </a>
                     
                     <!-- <div class="contact-card">
                         <div class="contact-icon">
@@ -869,17 +873,17 @@
                         
                         <div class="footer-social">
                             <a href="https://www.linkedin.com/in/renzaho-emmanuel-9963b3218/" target="_blank" rel="noopener noreferrer">
-                                <img src="./resources/Group 1.svg" alt="LinkedIn">
+                                <img src="./resources/linkedin.svg" alt="LinkedIn">
                             </a>
                             <a href="https://github.com/teerenzo" target="_blank" rel="noopener noreferrer">
-                                <img src="./resources/Group 2.svg" alt="GitHub">
+                                <img src="./resources/github.svg" alt="GitHub">
                             </a>
                         </div>
                     </div>
                     
                     <div class="footer-bottom">
                         <p>© <span id="currentYear"></span> Emmanuel Renzaho. All Rights Reserved.</p>
-                        <p>Built with passion for clean code and great user experiences.</p>
+                        <p>Built with <span style="color: #007bff;">❤</span> by Emmanuel Renzaho</p>
                     </div>
                 </div>
             </footer>
@@ -931,6 +935,51 @@
     
     // Set dynamic year for copyright
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    const calculateExperience = () => {
+        const startYear = 2018;
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth(); // 0-11
+        const startMonth = 11; // December (end of year 2018)
+        
+        let years = currentYear - startYear;
+        
+        // If we haven't reached December this year, subtract 1
+        if (currentMonth < startMonth) {
+            years--;
+        }
+        
+        return years;
+    };
+    
+
+    const updateExperience = () => {
+        const years = calculateExperience();
+        const yearsText = years >= 6 ? `${years}+` : years.toString();
+        
+  
+        const element1 = document.getElementById('experience-years-1');
+        if (element1) {
+            element1.textContent = years.toString();
+        }
+        
+    
+        const otherElements = [
+            document.getElementById('experience-years-2'),
+            document.getElementById('experience-years-3'),
+            document.getElementById('experience-years-4')
+        ];
+        
+        otherElements.forEach(element => {
+            if (element) {
+                element.textContent = yearsText;
+            }
+        });
+    };
+    
+    // Run on page load
+    updateExperience();
 </script>
 </body>
 </html>
