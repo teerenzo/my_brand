@@ -5,9 +5,21 @@ var all_content = document.getElementById("all-content");
 var web_content = document.getElementById("web-content");
 var mobile_content = document.getElementById("mobile-content");
 
-web_content.style.display="flex"
-mobile_content.style.display="none"
-branding.classList.add('btn')
+function initPortfolioTabs() {
+  if (!web_content || !mobile_content || !branding || !creativite) return;
+
+  /* Default tab: Mobile App (#mobile-content). Use Website button to switch. */
+  mobile_content.style.display = "flex";
+  mobile_content.style.opacity = "1";
+  web_content.style.display = "none";
+  web_content.style.opacity = "0";
+  creativite.classList.add("btn");
+  creativite.classList.remove("btn-regular");
+  branding.classList.remove("btn");
+  branding.classList.add("btn-regular");
+}
+
+initPortfolioTabs();
 
 changeContent = (val) =>{
  if(val==branding){

@@ -263,7 +263,12 @@ width: calc(100% - 320px);
     padding:7px;
      /* margin-bottom: 10px; */
      position: fixed;
-    width: 98%;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .mobile-menu {
     overflow: hidden;
@@ -1591,19 +1596,89 @@ display: flex;
     .sidebar{
         display: none;
     }
-    .nav-mobile{
+    .nav-mobile {
         display: flex;
         flex-direction: column;
         transition-delay: 5s;
+        border-radius: 0;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
         /* position: fixed; */
     }
     .nav{
         display:none;
     }
+
+    html,
+    body {
+        overflow-x: clip;
+        max-width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .pages{
         width: 100%;
-        margin-left: 0px;
-        padding: 7px;
+        max-width: 100%;
+        margin-left: 0;
+        padding: 0 0 12px;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow-x: clip;
+    }
+
+    /* Main column sections: full width, no accidental horizontal offset */
+    .pages > .landing,
+    .pages > .about,
+    .pages > .skill,
+    .pages > .Portfolio,
+    .pages > .articles,
+    .pages > .contact,
+    .pages > footer {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+
+    .landing,
+    .landing .bg-img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .landing .bg-img,
+    .landing-content {
+        border-radius: 0;
+    }
+
+    .landing-content {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about-me {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .articles {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .contact {
+        padding-left: 16px;
+        padding-right: 16px;
     }
     
     .nav-header {
@@ -1640,15 +1715,46 @@ display: flex;
         height: 150px;
         padding: 6px;
     }
-    .landing-btn{
-        height: 14vh;
+    .landing-btn {
         width: 100%;
-        flex-direction: row;
-        justify-content:center;
-        justify-items: center;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 8px 16px 28px;
+        box-sizing: border-box;
     }
-    .Portfolio .btn-protofolio{
-        width: 90%;
+
+    .landing-btn a {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: min(280px, 100%);
+    }
+    .Portfolio .btn-protofolio {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .protofolio-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 12px;
+        padding-right: 12px;
+        max-width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
     }
     .contact-content{
         justify-content: center;
@@ -1664,10 +1770,21 @@ display: flex;
         padding: 20px;
     }
     
+    .footer {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        box-sizing: border-box;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
     }
     
     .footer-social {
@@ -1699,7 +1816,11 @@ display: flex;
     }
     .post-container .post{
         width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
         margin-bottom: 15px;
+        box-sizing: border-box;
     }
     .articles{
         height: auto;
@@ -1759,10 +1880,13 @@ display: flex;
     padding-bottom: 30px;
 }
 .contact-content .contact-form{
-    width: 70%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .btn-contact{
-    width:40%
+    width: 100%;
+    max-width: 280px;
 }
 .bg-img {
     min-height: auto;
@@ -1772,6 +1896,7 @@ display: flex;
     min-height: auto;
     height: auto;
     justify-items: center;
+    padding-bottom: 8px;
 }
 .container{
     padding-top: 0px;
